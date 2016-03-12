@@ -1,0 +1,30 @@
+{
+  "extends": "eslint-config-rackt",
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  },
+  "rules": {
+    "react/jsx-uses-react": 1,
+    "react/jsx-no-undef": 2,
+    "react/wrap-multilines": 2,
+    "jsx-quotes": [2, "prefer-single"],
+    "comma-dangle": [2, "always-multiline"],
+    "space-before-function-paren": [1, "never"]
+  },
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "expect": true,
+    "global": true,
+    "window": true,
+    "sinon": true,
+    "debug": true,
+    "React": true,
+    "PropTypes": true,
+    "_": true,
+    "helpers": true
+  }
+}

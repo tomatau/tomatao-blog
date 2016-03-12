@@ -1,0 +1,12 @@
+[ignore]
+.*/node_modules/.*
+
+[libs]
+./flow/libs
+
+[options]
+module.system.node.resolve_dirname=src
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+esproposal.decorators=ignore
+esproposal.export_star_as=enable

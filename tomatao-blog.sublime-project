@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+      "name": "tomatao-blog",
+      "follow_symlinks": true,
+      "path": "."
+		}
+	]
+}
