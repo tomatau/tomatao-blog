@@ -1,34 +1,48 @@
 /* @flow */
 import { provideHooks } from 'redial'
 import { connect } from 'react-redux'
-import { get } from 'app/utils'
-import { fetchPosts } from 'app/actions/blog.actions'
+import { fetchPostList, fetchPost } from 'app/actions/blog.actions'
 import type { PostFile } from 'types/Post.types'
-
-const getPosts = get('blog.posts')
+import * as selectors from 'app/selectors'
+import { get } from 'app/utils'
 
 /*::`*/
 @provideHooks({
-  prefetch: ({ dispatch }) => dispatch(fetchPosts()).payload.promise,
+  prefetch: ({ dispatch }) => dispatch(fetchPostList()).payload.promise,
 })
 @connect(state => ({
-  posts: getPosts(state),
-}))
+  postList: selectors.getPostList(state),
+  hasSelectedPost: selectors.hasSelectedPost(state),
+  selectedPost: selectors.getSelectedPost(state),
+}), { fetchPost })
 /*::`*/
 class BlogListRoute extends React.Component {
   props: {
-    posts: Array<PostFile>
+    postList: Array<PostFile>,
+    selectedPost?: PostFile,
+    fetchPost: Function,
+    hasSelectedPost: boolean,
   };
 
+  handlePostClick(post:PostFile) {
+    this.props.fetchPost(post.filename)
+  }
+
   render() {
-    const { posts } = this.props
+    const { postList, selectedPost, hasSelectedPost } = this.props
     return (
       <section className='BlogListRoute'>
-        {posts.map(post =>
-          <div key={post.filename}>
+        {postList.map(post =>
+          <div key={post.filename} onClick={() => this.handlePostClick(post)}>
             <h3>{post.title}</h3>
           </div>
         )}
+        {!hasSelectedPost ? null :
+          <div
+            dangerouslySetInnerHTML={{
+              __html: get(selectedPost, 'html'),
+            }}
+          />}
       </section>
     )
   }
