@@ -84,6 +84,7 @@ export const babelLoaderConfig = {
       } ],
       'babel-root-import',
       'transform-decorators-legacy',
+      'plugin-transform-flow-strip-types',
     ],
   },
 }
