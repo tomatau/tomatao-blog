@@ -1,5 +1,7 @@
+/* @flow */
 import { typeToReducer, get } from 'app/utils'
-import { FETCH_POSTS } from 'app/actions/blog'
+import { FETCH_POSTS } from 'app/actions/blog.actions'
+import type { FSA } from 'types/app.types'
 
 const getPosts = get([ 'payload', 'posts' ])
 
@@ -16,16 +18,14 @@ export const blogReducers = typeToReducer({
       ...initialState,
       isPending: true,
     }),
-    REJECTED: (state, action) => ({
+    REJECTED: (state, action: FSA) => ({
       ...initialState,
       error: action.payload,
     }),
-    FULFILLED: (state, action) => {
-      return {
-        ...initialState,
-        posts: getPosts(action),
-      }
-    },
+    FULFILLED: (state, action: FSA) => ({
+      ...initialState,
+      posts: getPosts(action),
+    }),
   },
 
 }, initialState)

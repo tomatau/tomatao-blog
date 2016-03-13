@@ -14,6 +14,6 @@ export type PostDescription = {
 };
 
 export type PostGateway = {
-  getPostList: () => PostFile[],
-  getPost: (filename: string) => PostFile,
+  getPostList: () => Promise<PostFile[]>,
+  getPost: (filename: string) => Promise<PostFile>,
 }

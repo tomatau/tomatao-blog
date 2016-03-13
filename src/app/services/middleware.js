@@ -19,7 +19,7 @@ export const middleware = [
   ...defaultMiddleware,
 ]
 
-if (isBrowser()) {
+if (isBrowser) {
   middleware.push(
     outClientViaSocketIO(socket),
     createLogger({

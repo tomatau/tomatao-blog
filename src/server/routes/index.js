@@ -1,6 +1,6 @@
 import Router from 'koa-router'
 import koaBody from 'koa-body'
-import Posts from 'server/services/Posts'
+import Posts from 'server/gateways/post.server'
 
 const parseBody = koaBody()
 const apiRouter = Router({ prefix: '/api' })
@@ -14,7 +14,7 @@ apiRouter
     this.response.body = { pong: this.request.body }
   })
   .get('posts', '/posts', function *() {
-    const postList = Posts.getPostList()
+    const postList = yield Posts.getPostList()
     log.routes(postList)
     this.response.body = postList
   })

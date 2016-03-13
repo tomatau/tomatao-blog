@@ -30,7 +30,7 @@ const helpers = {
   },
 }
 
-setGlobals(isBrowser() ? window : GLOBAL)
+setGlobals(isBrowser ? window : GLOBAL)
 
 function setGlobals(global) {
   global.global = global
