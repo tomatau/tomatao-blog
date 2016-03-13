@@ -40,7 +40,7 @@ class BlogListRoute extends React.Component {
         {!hasSelectedPost ? null :
           <div
             dangerouslySetInnerHTML={{
-              __html: get(selectedPost, 'html'),
+              __html: get('html')(selectedPost),
             }}
           />}
       </section>

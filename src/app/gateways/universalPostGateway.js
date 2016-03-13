@@ -1,5 +1,6 @@
 import { hasWindow } from 'app/utils'
+import { SERVER } from 'config/paths'
 
 export default hasWindow
   ? require(`./httpPostGateway`)
-  : require(`./fsPostGateway`)
+  : require(`${SERVER}/gateways/fsPostGateway`)

@@ -1,6 +1,6 @@
 import Router from 'koa-router'
 import koaBody from 'koa-body'
-import fsPostGateway from 'app/gateways/fsPostGateway'
+import fsPostGateway from 'server/gateways/fsPostGateway'
 
 const parseBody = koaBody()
 const apiRouter = Router({ prefix: '/api' })
