@@ -10,10 +10,12 @@
     "build": "node ./scripts/babel.entry.js --build",
     "dev": "node ./scripts/babel.entry.js --dev",
     "lint": "eslint . --ext .js",
+    "check": "flow check",
     "lint:styles": "sass-lint --verbose -c .sass-lint.yml"
   },
   "pre-push": [
     "lint",
+    "check",
     "lint:styles",
     "test:run",
     "test:functional"
@@ -54,6 +56,7 @@
     "babel-plugin-ramda": "^1.0.0",
     "babel-plugin-react-require": "^2.1.0",
     "babel-plugin-transform-decorators-legacy": "~1.3.4",
+    "babel-plugin-transform-flow-strip-types": "^6.7.0",
     "babel-polyfill": "~6.5.0",
     "babel-preset-es2015": "~6.5.0",
     "babel-preset-react": "~6.5.0",

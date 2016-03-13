@@ -42,6 +42,13 @@ export default {
       ),
     }, {
       ...babelLoaderConfig,
+      query: {
+        ...babelLoaderConfig.query,
+        'plugins': [
+          ...babelLoaderConfig.query.plugins,
+          'transform-flow-strip-types',
+        ],
+      },
     }, ...webpackConfig.module.loaders ],
   },
 }
