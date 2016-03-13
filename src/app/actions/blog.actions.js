@@ -1,5 +1,5 @@
 import type { FSA } from 'types/app.types'
-import postGateway from 'app/gateways/post.universal'
+import postGateway from 'app/gateways/universalPostGateway'
 
 export const FETCH_POST_LIST = 'blog/FETCH_POST_LIST'
 export const FETCH_POST = 'blog/FETCH_POST'

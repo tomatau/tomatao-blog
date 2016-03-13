@@ -1,6 +1,6 @@
 import Router from 'koa-router'
 import koaBody from 'koa-body'
-import Posts from 'server/gateways/post.server'
+import fsPostGateway from 'app/gateways/fsPostGateway'
 
 const parseBody = koaBody()
 const apiRouter = Router({ prefix: '/api' })
@@ -14,10 +14,10 @@ apiRouter
     this.body = { pong: this.request.body }
   })
   .get('posts', '/posts', function *() {
-    this.body = yield Posts.getPostList()
+    this.body = yield fsPostGateway.getPostList()
   })
   .get('post.file', '/posts/:filename', function *() {
-    this.body = yield Posts.getPost(this.params.filename)
+    this.body = yield fsPostGateway.getPost(this.params.filename)
   })
 
 export default apiRouter
