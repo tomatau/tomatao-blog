@@ -1,18 +1,16 @@
 import type { FSA } from 'types/app.types'
-import postGateway from 'app/gateways/universalPostGateway'
-
-export const FETCH_POST_LIST = 'blog/FETCH_POST_LIST'
-export const FETCH_POST = 'blog/FETCH_POST'
+import postGateway from './universalPostGateway'
+import * as constants from './blog.constants'
 
 export const fetchPostList = (): FSA => ({
-  type: FETCH_POST_LIST,
+  type: constants.FETCH_POST_LIST,
   payload: {
     promise: postGateway.getPostList().then(postList => ({ postList })),
   },
 })
 
 export const fetchPost = (filename): FSA => ({
-  type: FETCH_POST,
+  type: constants.FETCH_POST,
   payload: {
     promise: postGateway.getPost(filename).then(post => ({ post })),
   },

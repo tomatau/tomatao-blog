@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
-import { removeMessage } from 'app/actions/flash'
+import { flashActions, flashSelectors } from 'app/modules/flash'
 import { Bem } from 'app/utils'
-import * as selectors from 'app/selectors'
 import styles from './FlashMessages.module.scss'
 
 const { PropTypes } = React
@@ -24,8 +23,8 @@ Msg.propTypes = {
 }
 
 @connect(state => ({
-  messages: selectors.flashMessages(state),
-}), { removeMessage })
+  messages: flashSelectors.flashMessages(state),
+}), { removeMessage: flashActions.removeMessage })
 class FlashMessages extends React.Component {
   static propTypes = {
     messages: PropTypes.array,

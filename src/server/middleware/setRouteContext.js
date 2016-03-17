@@ -1,7 +1,7 @@
 import { RouterContext, match } from 'react-router'
 import { trigger } from 'redial'
 import { history } from 'app/services/history'
-import * as selectors from 'app/selectors'
+import { flashSelectors } from 'app/modules/flash'
 import { store as clientStore } from 'app/services/store'
 
 export default function(makeRoutes) {
@@ -39,7 +39,7 @@ export default function(makeRoutes) {
     }
 
     function transferFlashMessages() {
-      const nextFlashMessage = selectors.nextFlashMessage(clientStore.getState())
+      const nextFlashMessage = flashSelectors.nextFlashMessage(clientStore.getState())
       if (nextFlashMessage) {
         this.addFlash(nextFlashMessage.message, nextFlashMessage.type)
       }

@@ -1,5 +1,5 @@
 import { flashReducers } from './flash.reducers'
-import { REMOVE_MESSAGE } from 'app/actions/flash'
+import * as constants from './flash.constants'
 
 describe('Flash Reducers', ()=> {
   it('should return the initial state', ()=> {
@@ -16,7 +16,7 @@ describe('Flash Reducers', ()=> {
 
     describe('REMOVE_FLASH action', ()=> {
       const removeFlashAction = Object.freeze({
-        type: REMOVE_MESSAGE,
+        type: constants.REMOVE_MESSAGE,
         payload: {
           flash_id: _.sample(messages).id,
         },

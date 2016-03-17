@@ -76,18 +76,5 @@ describe('Client Render', function() {
         })
       })
     })
-
-    describe('/foo', ()=> {
-      it('should render the FooRoute after navigating to /foo', ()=> {
-        expect(this.wrapper.find('.FooRoute')).to.have.length(0)
-        history.push('/foo')
-        expect(this.wrapper.find('.FooRoute')).to.have.length(1)
-      })
-
-      it('should render the clientOnly data', ()=> {
-        history.push('/foo')
-        expect(this.wrapper.text()).to.contain('Client Only Data')
-      })
-    })
   })
 })

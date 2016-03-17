@@ -3,11 +3,11 @@ import fs from 'fs'
 import { capitalize } from 'lodash'
 import { pipe, replace } from 'ramda'
 import { POSTS } from 'config/paths'
-import type { PostGateway, PostFile } from 'types/Post.types'
+import type { PostGateway, PostFile } from 'types/post.types'
 
-const log = {
-  posts: debug('posts.server.gateway'),
-}
+// const log = {
+//   posts: debug('posts.server.gateway'),
+// }
 
 const filenameToTitle = pipe(
   replace(/-/g, ' '), replace(/.md$/, ''), capitalize
@@ -22,11 +22,9 @@ const serverGateway: PostGateway = {
   },
 
   async getPost(filename: string): Promise<PostFile> {
-    const content = fs.readFileSync(`${POSTS}/${filename}`, 'utf8')
-    log.posts(content)
     return {
       filename,
-      content,
+      content: fs.readFileSync(`${POSTS}/${filename}`, 'utf8'),
       title: filenameToTitle(filename),
     }
   },

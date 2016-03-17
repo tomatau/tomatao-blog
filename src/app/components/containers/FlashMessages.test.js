@@ -1,7 +1,7 @@
 import WrappedFlashMessages, { Msg } from './FlashMessages'
 import { shallow, mount } from 'enzyme'
 import { Provider } from 'react-redux'
-import * as actions from 'app/actions/flash'
+import { flashActions } from 'app/modules/flash'
 import styles from './FlashMessages.module.scss'
 
 describe('FlashMessages Component', function() {
@@ -118,7 +118,7 @@ describe('FlashMessages Component', function() {
       flashMessage.prop('removeMessage')('123')
       expect(
         this.store.dispatch
-      ).to.have.been.calledWith(actions.removeMessage('123'))
+      ).to.have.been.calledWith(flashActions.removeMessage('123'))
     })
   })
 })

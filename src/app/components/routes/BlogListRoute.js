@@ -1,20 +1,19 @@
 /* @flow */
 import { provideHooks } from 'redial'
 import { connect } from 'react-redux'
-import { fetchPostList, fetchPost } from 'app/actions/blog.actions'
-import type { PostFile } from 'types/Post.types'
-import * as selectors from 'app/selectors'
+import { blogActions, blogSelectors } from 'app/modules/blog'
 import { get } from 'app/utils'
+import type { PostFile } from 'types/post.types'
 
 /*::`*/
 @provideHooks({
-  prefetch: ({ dispatch }) => dispatch(fetchPostList()).payload.promise,
+  prefetch: ({ dispatch }) => dispatch(blogActions.fetchPostList()).payload.promise,
 })
 @connect(state => ({
-  postList: selectors.getPostList(state),
-  hasSelectedPost: selectors.hasSelectedPost(state),
-  selectedPost: selectors.getSelectedPost(state),
-}), { fetchPost })
+  postList: blogSelectors.getPostList(state),
+  hasSelectedPost: blogSelectors.hasSelectedPost(state),
+  selectedPost: blogSelectors.getSelectedPost(state),
+}), { fetchPost: blogActions.fetchPost })
 /*::`*/
 class BlogListRoute extends React.Component {
   props: {
