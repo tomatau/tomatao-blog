@@ -6,11 +6,11 @@ const endpoints = new BlogEndpoints({ useBaseUrl: true })
 
 const browserGateway: PostGateway = {
   async getPostList(): Promise<PostFile[]> {
-    const { data } = await fetch.get(endpoints.post())
+    const { data } = await fetch.get(endpoints.postList())
     return data
   },
   async getPost(filename): Promise<PostFile> {
-    const { data } = await fetch.get(endpoints.posts(filename))
+    const { data } = await fetch.get(endpoints.post(filename))
     return data
   },
 }

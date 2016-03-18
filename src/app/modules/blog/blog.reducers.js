@@ -25,7 +25,7 @@ const initialState: blogState = {
 
 const updateOrAddPost = (postList, post): Array<PostFile> => {
   const filename = get('filename')(post)
-  const idx = findIndex(propEq('filename'), filename)(postList)
+  const idx = findIndex(propEq('filename', filename))(postList)
   const postDesc = {
     ...post,
     ...marked(post.content),
