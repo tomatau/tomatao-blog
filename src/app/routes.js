@@ -15,7 +15,9 @@ export const makeRoutes = () => (
     <Route path='/private' component={OopsRoute}
       onEnter={(_, redirect) => {
         store.dispatch(
-          flashActions.addMessage('You may not view the private route!!', 'error')
+          flashActions.addMessage(
+            'You may not view the private route!!', 'error'
+          )
         )
         redirect('/')
       }}
