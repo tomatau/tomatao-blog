@@ -14,7 +14,7 @@ export default {
       'webpack-hot-middleware/client',
     ],
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: '#cheap-module-eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     isomorphicPlugin,

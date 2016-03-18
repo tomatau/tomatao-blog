@@ -2,6 +2,8 @@ import ReactDOM from 'react-dom'
 import { socket } from 'app/services/socket'
 import { dispatch } from 'app/services/store'
 import { Main, Dev } from 'app/main'
+import offlineRuntime from 'offline-plugin/runtime'
+offlineRuntime.install()
 
 debug.enable(process.env.DEBUG)
 
