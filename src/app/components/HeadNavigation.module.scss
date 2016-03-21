@@ -1,16 +1,41 @@
 @import '~vars';
 @import '~tao-scss/index';
 
-.nav a {
-  color: $link-color;
-  margin-right: rem(10px);
-  text-decoration: none;
+.nav {
+  padding: 10px;
+  box-shadow: 0px 0px 2px $grey;
 
-  &:last-of-type {
-    margin-right: 0;
+  a {
+    color: $font-color;
+    margin-right: rem(10px);
+    text-decoration: none;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 }
 
+.inner {
+
+}
+
+.homeLink {
+  img {
+    padding-right: rem(20px);
+    vertical-align: middle;
+    width: rem(35px);
+  }
+}
+
+.header {
+  display: inline;
+  font-size: 1.5em;
+  position: relative;
+  top: 1px;
+  vertical-align: middle;
+  font-family: $heading-font;
+}
+
 a.active {
-  color: $active-color;
 }

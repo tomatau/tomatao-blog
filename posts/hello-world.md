@@ -6,9 +6,65 @@ Date:   March 6, 2016
 
 # Hello, world!
 
-```js
-function hello() {
-  return 'world'
+```javascript
+/* @flow */
+import { provideHooks } from 'redial'
+import { connect } from 'react-redux'
+import { blogActions, blogSelectors } from 'app/modules/blog'
+import { get } from 'app/utils'
+import type { PostFile } from 'types/post.types'
+import style from './BlogListRoute.module.scss'
+import hljs from 'highlight.js'
+
+@provideHooks({
+  prefetch: ({ dispatch }) => dispatch(blogActions.fetchPostList()).payload.promise,
+})
+@connect(state => ({
+  postList: blogSelectors.getPostList(state),
+  hasSelectedPost: blogSelectors.hasSelectedPost(state),
+  selectedPost: blogSelectors.getSelectedPost(state),
+}), { fetchPost: blogActions.fetchPost })
+export default class BlogListRoute extends React.Component {
+  props: {
+    postList: Array<PostFile>,
+    selectedPost?: PostFile,
+    fetchPost: Function,
+    hasSelectedPost: boolean,
+  };
+
+  handlePostClick(post:PostFile) {
+    this.props.fetchPost(post.filename)
+  }
+
+  componentDidUpdate(nextProps:Object) {
+    const getFilename = get('selectedPost.filename')
+    if (getFilename(nextProps) === getFilename(this.props)) return
+    for (let node of document.querySelectorAll('code')) {
+      hljs.highlightBlock(node)
+    }
+  }
+
+  render() {
+    const { postList, selectedPost, hasSelectedPost } = this.props
+    return (
+      <section className='BlogListRoute'>
+        <ul>
+          {postList.map(post =>
+            <li key={post.filename}
+              className={style.listItem}
+              onClick={() => this.handlePostClick(post)}>
+              <h3>{post.title}</h3>
+            </li>
+          )}
+        </ul>
+        {!hasSelectedPost ? null :
+          <div
+            dangerouslySetInnerHTML={{
+              __html: get('html')(selectedPost),
+            }}
+          />}
+      </section>
+    )
+  }
 }
 ```
-

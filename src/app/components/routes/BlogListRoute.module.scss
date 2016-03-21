@@ -1,0 +1,11 @@
+@import '~vars';
+@import '~tao-scss/index';
+
+.listItem {
+  font-family: $heading-font;
+
+  &:hover {
+    color: $link-color;
+    cursor: pointer;
+  }
+}

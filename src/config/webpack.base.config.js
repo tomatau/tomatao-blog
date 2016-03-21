@@ -1,7 +1,7 @@
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import CleanPlugin from 'clean-webpack-plugin'
-import OfflinePlugin from 'offline-plugin'
+// import OfflinePlugin from 'offline-plugin'
 import { SRC, APP, STATIC, STYLES, ROOT } from 'config/paths'
 import { isomorphicPlugin } from 'server/isomorphicTools'
 
@@ -45,21 +45,30 @@ export default {
     new ExtractTextPlugin('[name].[hash].css',{
       allChunks: true,
     }),
-    new OfflinePlugin({
-      caches: {
-        main: [ '/', '/foo', '/private', '/bar', 'head.*.js', 'body.*.js', 'head.*.css', 'body.*.css' ],
-      },
-      externals: [ '/', '/foo', '/private', '/bar' ],
-      scope: '/',
-      updateStrategy: 'all',
-      version: 'v1',
-      ServiceWorker: {
-        output: 'sw.js',
-      },
-      AppCache: {
-        directory: 'appcache/',
-      },
-    }),
+    // new OfflinePlugin({
+    //   caches: {
+    //     main: [
+    //       '/',
+    //       '/foo',
+    //       '/private',
+    //       '/bar',
+    //       'head.*.js',
+    //       'body.*.js',
+    //       'head.*.css',
+    //       'body.*.css',
+    //     ],
+    //   },
+    //   externals: [ '/', '/foo', '/private', '/bar' ],
+    //   scope: '/',
+    //   updateStrategy: 'all',
+    //   version: 'v1',
+    //   ServiceWorker: {
+    //     output: 'sw.js',
+    //   },
+    //   AppCache: {
+    //     directory: 'appcache/',
+    //   },
+    // }),
   ],
   module: {
     loaders: [ {

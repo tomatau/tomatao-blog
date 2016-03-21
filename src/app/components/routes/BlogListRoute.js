@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { blogActions, blogSelectors } from 'app/modules/blog'
 import { get } from 'app/utils'
 import type { PostFile } from 'types/post.types'
+import style from './BlogListRoute.module.scss'
+// import hljs from 'highlight.js'
+import Prism from 'prismjs'
 
 /*::`*/
 @provideHooks({
@@ -23,6 +26,19 @@ class BlogListRoute extends React.Component {
     hasSelectedPost: boolean,
   };
 
+  shouldComponentUpdate(nextProps:Object) {
+    const getFilename = get('selectedPost.filename')
+    return (getFilename(nextProps) !== getFilename(this.props))
+      || nextProps.postList.length !== this.props.postList.length
+  }
+
+  componentDidUpdate() {
+    Prism.highlightAll()
+    // for (let node of document.querySelectorAll('code')) {
+    //   hljs.highlightBlock(node)
+    // }
+  }
+
   handlePostClick(post:PostFile) {
     this.props.fetchPost(post.filename)
   }
@@ -31,11 +47,15 @@ class BlogListRoute extends React.Component {
     const { postList, selectedPost, hasSelectedPost } = this.props
     return (
       <section className='BlogListRoute'>
-        {postList.map(post =>
-          <div key={post.filename} onClick={() => this.handlePostClick(post)}>
-            <h3>{post.title}</h3>
-          </div>
-        )}
+        <ul>
+          {postList.map(post =>
+            <li key={post.filename}
+              className={style.listItem}
+              onClick={() => this.handlePostClick(post)}>
+              <h3>{post.title}</h3>
+            </li>
+          )}
+        </ul>
         {!hasSelectedPost ? null :
           <div
             dangerouslySetInnerHTML={{

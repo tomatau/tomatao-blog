@@ -1,4 +1,5 @@
-import { IndexLink, Link } from 'react-router'
+import { IndexLink } from 'react-router'
+import logoPath from 'assets/tomatao.png'
 import styles from './HeadNavigation.module.scss'
 
 // Putting this inside a container will break activeClassName
@@ -8,18 +9,14 @@ export default class HeadNavigation extends React.Component {
     const { ...props } = this.props
     return (
       <nav className={styles.nav} {...props}>
-        <IndexLink activeClassName={styles.active} to='/'>
-          Home
-        </IndexLink>
-        <Link activeClassName={styles.active} to='/foo'>
-          Foo
-        </Link>
-        <Link activeClassName={styles.active} to='/bar'>
-          Bar
-        </Link>
-        <Link activeClassName={styles.active} to='/private'>
-          Private
-        </Link>
+        <div className={styles.inner}>
+          <IndexLink to='/'
+            className={styles.homeLink}
+            activeClassName={styles.active}>
+            <img src={logoPath} alt='Image Home Link' />
+            <h2 className={styles.header}>tomatao blog</h2>
+          </IndexLink>
+        </div>
       </nav>
     )
   }

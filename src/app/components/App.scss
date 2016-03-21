@@ -1,0 +1,20 @@
+// @import '~highlight.js/styles/agate';
+// @import '~highlight.js/styles/androidstudio';
+// @import '~highlight.js/styles/solarized-light';
+// @import '~highlight.js/styles/github';
+// @import '~highlight.js/styles/railscasts';
+// @import '~prismjs/themes/prism-okaidia';
+@import '~prismjs/themes/prism-funky';
+
+.token.function {
+    color: #1acc1a;
+}
+
+.token.class-name {
+    color: #68cbff;
+}
+
+body {
+  margin: 0;
+  font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+}
