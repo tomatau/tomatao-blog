@@ -2,8 +2,8 @@
 @import '~tao-scss/index';
 
 .nav {
+  border-top: 5px solid $tomatao-red;
   padding: 10px;
-  box-shadow: 0px 0px 2px $grey;
 
   a {
     color: $font-color;
@@ -17,7 +17,7 @@
 }
 
 .inner {
-
+  margin: 0 10px;
 }
 
 .homeLink {

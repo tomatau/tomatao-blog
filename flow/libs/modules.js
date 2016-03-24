@@ -21,3 +21,11 @@ declare module 'react-redux' {
 declare module 'meta-marked' {
   declare function exports(args: any): any;
 }
+
+declare module 'CSSModule' {
+  declare var exports: { [key: string]: string };
+}
+
+declare module 'prismjs' {
+  declare function highlightAll(args: any): any;
+}

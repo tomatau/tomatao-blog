@@ -5,6 +5,8 @@
 ./flow/libs
 
 [options]
+module.name_mapper='.+.scss$' -> 'CSSModule'
+module.system=haste
 module.system.node.resolve_dirname=src
 esproposal.class_static_fields=enable
 esproposal.class_instance_fields=enable

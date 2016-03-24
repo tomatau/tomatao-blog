@@ -26,7 +26,7 @@ class BlogListRoute extends React.Component {
     hasSelectedPost: boolean,
   };
 
-  shouldComponentUpdate(nextProps:Object) {
+  shouldComponentUpdate(nextProps:Object): boolean {
     const getFilename = get('selectedPost.filename')
     return (getFilename(nextProps) !== getFilename(this.props))
       || nextProps.postList.length !== this.props.postList.length
