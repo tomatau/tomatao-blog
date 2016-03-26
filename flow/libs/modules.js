@@ -13,6 +13,11 @@ declare module 'ramda' {
   declare function split(_: any): any;
   declare function trim(_: any): any;
   declare function map(_: any): any;
+  declare function noop(_: any): any;
+  declare function isEmpty(_: any): boolean;
+  declare function addIndex(_: any): boolean;
+  declare function filter(_: any): boolean;
+  declare function identity(_: any): boolean;
 }
 
 declare module 'redial' {

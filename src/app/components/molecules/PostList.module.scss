@@ -1,0 +1,11 @@
+@import '~vars';
+@import '~tao-scss/index';
+
+.list {
+  padding: 0;
+}
+
+.listItem {
+  list-style-type: none;
+  margin-bottom: rem(20);
+}

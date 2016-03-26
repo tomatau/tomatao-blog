@@ -1,12 +1,12 @@
 /* @flow */
 import fs from 'fs'
 import { mapKeys } from 'lodash'
-import { pipe, split, map, trim } from 'ramda'
+import { pipe, split, map, trim, filter, identity } from 'ramda'
 import { POSTS } from 'config/paths'
 import marked from 'meta-marked'
 import type { PostGateway, PostFile } from 'types/post.types'
 
-const parseTags = pipe(split(','), map(trim))
+const parseTags = pipe(split(','), map(trim), filter(identity))
 const keysToLower = (obj) => mapKeys(obj, (val, key) => key.toLowerCase())
 
 const serverGateway: PostGateway = {
