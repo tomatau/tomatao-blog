@@ -1,70 +1,44 @@
 ---
 Title:  Hello, world!
-Author: Thomas Hudspith-Tatham  
+Author: Thomas `tomatao` Hudspith-Tatham
+Tags: test, jsx
 Date:   March 6, 2016
 ---
 
 # Hello, world!
 
-```javascript
-/* @flow */
-import { provideHooks } from 'redial'
-import { connect } from 'react-redux'
-import { blogActions, blogSelectors } from 'app/modules/blog'
-import { get } from 'app/utils'
-import type { PostFile } from 'types/post.types'
-import style from './BlogListRoute.module.scss'
-import hljs from 'highlight.js'
+```jsx
+const hello = (who) => {
+  return <span>`Hello, ${who}!`</span>
+}
 
-@provideHooks({
-  prefetch: ({ dispatch }) => dispatch(blogActions.fetchPostList()).payload.promise,
-})
-@connect(state => ({
-  postList: blogSelectors.getPostList(state),
-  hasSelectedPost: blogSelectors.hasSelectedPost(state),
-  selectedPost: blogSelectors.getSelectedPost(state),
-}), { fetchPost: blogActions.fetchPost })
-export default class BlogListRoute extends React.Component {
-  props: {
-    postList: Array<PostFile>,
-    selectedPost?: PostFile,
-    fetchPost: Function,
-    hasSelectedPost: boolean,
-  };
+hello('world')
+```
 
-  handlePostClick(post:PostFile) {
-    this.props.fetchPost(post.filename)
-  }
+Write stuff in here
 
-  componentDidUpdate(nextProps:Object) {
-    const getFilename = get('selectedPost.filename')
-    if (getFilename(nextProps) === getFilename(this.props)) return
-    for (let node of document.querySelectorAll('code')) {
-      hljs.highlightBlock(node)
-    }
-  }
+- make a list
+- more list with **BOLD**
 
-  render() {
-    const { postList, selectedPost, hasSelectedPost } = this.props
-    return (
-      <section className='BlogListRoute'>
-        <ul>
-          {postList.map(post =>
-            <li key={post.filename}
-              className={style.listItem}
-              onClick={() => this.handlePostClick(post)}>
-              <h3>{post.title}</h3>
-            </li>
-          )}
-        </ul>
-        {!hasSelectedPost ? null :
-          <div
-            dangerouslySetInnerHTML={{
-              __html: get('html')(selectedPost),
-            }}
-          />}
-      </section>
-    )
-  }
+## Sub heading
+
+```html
+<span>Hi</span>
+```
+
+### Subheading 3
+
+That was some [html](https://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=9&cad=rja&uact=8&ved=0ahUKEwii65-rk97LAhVJaRQKHetGC7UQFghVMAg&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHTML&usg=AFQjCNGWzvKOMS3mJtkmYV17j6YJ6s2zNw&sig2=ENRFblQVVEh_AXxbgfoYBQ) in a code block.
+
+```scss
+$font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+$default-font-size: 1em;
+
+span {
+  font-family: $font-family;
+}
+
+.moo #hi {
+  color: red;
 }
 ```

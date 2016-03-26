@@ -1,13 +1,29 @@
-$heading-font: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
-$font-color: #222;
+@import '~tao-scss/index';
 
-$info-blue: #0e8dce;
-$error-red: #af0000;
-$good-green: #066506;
+/* Font */
+$font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+$default-font-size: em(16);
+$small-font-size: em(12);
+$header-font-size: em(26);
+$subheader-font-size: em(20);
+
+/* Colours */
+$font-dark: #222;
+$font-light: white;
 
 $border-grey: #8e7f7f;
 $grey: #eceeef;
+
 $tomatao-red: #cf3f3f;
 
-$link-color: #228b22;
-$active-color: #055605;
+$info-blue: #68cbff;
+
+$tomatao-green: #079948;
+$function-green: $tomatao-green;
+
+$syntax-orange: #ff9119;
+$operator-pink: #ff69b4;
+
+/* Dimensions */
+$max-width: rem(720);
+$side-padding: 5vw;

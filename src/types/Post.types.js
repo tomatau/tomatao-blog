@@ -1,16 +1,13 @@
 /* @flow */
 export type PostFile = {
   filename: string,
-  title?: string,
-  content?: string,
-};
-
-export type PostDescription = {
+  markdown: string,
   meta: {
-    author: string,
+    title: string,
     date: string,
+    tags: Array<string>,
+    author?: string,
   },
-  body: string
 };
 
 export type PostGateway = {

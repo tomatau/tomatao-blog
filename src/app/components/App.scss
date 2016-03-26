@@ -1,20 +1,29 @@
-// @import '~highlight.js/styles/agate';
-// @import '~highlight.js/styles/androidstudio';
-// @import '~highlight.js/styles/solarized-light';
-// @import '~highlight.js/styles/github';
-// @import '~highlight.js/styles/railscasts';
-// @import '~prismjs/themes/prism-okaidia';
+@import '~vars';
+@import '~tao-scss/index';
 @import '~prismjs/themes/prism-funky';
 
-.token.function {
-    color: #1acc1a;
-}
+.token {
+  &.keyword {
+    color: $tomatao-red;
+  }
 
-.token.class-name {
-    color: #68cbff;
-}
+  &.operator {
+    color: $operator-pink;
+  }
 
-body {
-  margin: 0;
-  font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+  &.function {
+    color: lighten($function-green, 10%);
+  }
+
+  &.class-name {
+    color: $info-blue;
+  }
+
+  &.punctuation {
+    color: $syntax-orange;
+  }
+
+  &.variable {
+    color: $operator-pink;
+  }
 }

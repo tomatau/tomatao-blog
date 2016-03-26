@@ -1,8 +1,8 @@
 import { filter } from 'ramda'
-import { typeToReducer, get } from 'app/utils'
+import { typeToReducer, grab } from 'app/utils'
 import * as constants from './flash.constants'
 
-const getFlashId = get([ 'payload', 'flash_id' ])
+const getFlashId = grab([ 'payload', 'flash_id' ])
 const initialState = { messages: [] }
 
 export const flashReducers = typeToReducer({

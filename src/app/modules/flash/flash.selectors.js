@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
-import { get } from 'app/utils'
+import { grab } from 'app/utils'
 
-export const flashMessages = get('flash.messages')
+export const flashMessages = grab('flash.messages')
 
 export const nextFlashMessage = createSelector(
   [ flashMessages ],

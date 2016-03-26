@@ -1,6 +1,7 @@
 ---
 Title:  Second post!
-Author: Thomas Hudspith-Tatham  
+Author: Thomas `tomatao` Hudspith-Tatham
+Tags:
 Date:   March 12, 2016
 ---
 

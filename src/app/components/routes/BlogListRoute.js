@@ -1,12 +1,12 @@
 /* @flow */
 import { provideHooks } from 'redial'
+import cx from 'classnames'
+import { intersperse } from 'ramda'
 import { connect } from 'react-redux'
 import { blogActions, blogSelectors } from 'app/modules/blog'
-import { get } from 'app/utils'
+import { grab, highlight } from 'app/utils'
 import type { PostFile } from 'types/post.types'
 import style from './BlogListRoute.module.scss'
-// import hljs from 'highlight.js'
-import Prism from 'prismjs'
 
 /*::`*/
 @provideHooks({
@@ -16,6 +16,7 @@ import Prism from 'prismjs'
   postList: blogSelectors.getPostList(state),
   hasSelectedPost: blogSelectors.hasSelectedPost(state),
   selectedPost: blogSelectors.getSelectedPost(state),
+  selectedHtml: blogSelectors.getSelectedHtml(state),
 }), { fetchPost: blogActions.fetchPost })
 /*::`*/
 class BlogListRoute extends React.Component {
@@ -24,19 +25,27 @@ class BlogListRoute extends React.Component {
     selectedPost?: PostFile,
     fetchPost: Function,
     hasSelectedPost: boolean,
+    selectedHtml: string,
   };
 
   shouldComponentUpdate(nextProps:Object): boolean {
-    const getFilename = get('selectedPost.filename')
+    const getFilename = grab('selectedPost.filename')
     return (getFilename(nextProps) !== getFilename(this.props))
       || nextProps.postList.length !== this.props.postList.length
   }
 
   componentDidUpdate() {
-    Prism.highlightAll()
-    // for (let node of document.querySelectorAll('code')) {
-    //   hljs.highlightBlock(node)
-    // }
+    this.highlightCode()
+  }
+
+  componentDidMount() {
+    this.highlightCode()
+  }
+
+  highlightCode() {
+    for (let node of document.querySelectorAll('code')) {
+      highlight.highlightElement(node)
+    }
   }
 
   handlePostClick(post:PostFile) {
@@ -44,22 +53,32 @@ class BlogListRoute extends React.Component {
   }
 
   render() {
-    const { postList, selectedPost, hasSelectedPost } = this.props
+    const { postList, selectedHtml, hasSelectedPost } = this.props
     return (
-      <section className='BlogListRoute'>
-        <ul>
+      <section className={cx('BlogListRoute', style.listRoute)}>
+        <ul className={style.list}>
           {postList.map(post =>
             <li key={post.filename}
               className={style.listItem}
               onClick={() => this.handlePostClick(post)}>
-              <h3>{post.title}</h3>
+              <h3>{post.meta.title}</h3>
+              <p className={style.sub}>
+                <time>{post.meta.date}</time>
+              </p>
+              <div className={style.tagList}>
+                {intersperse(', ')(post.meta.tags.map((tag, i) =>
+                  <span key={i} className={style.tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </li>
           )}
         </ul>
         {!hasSelectedPost ? null :
           <div
             dangerouslySetInnerHTML={{
-              __html: get('html')(selectedPost),
+              __html: selectedHtml,
             }}
           />}
       </section>

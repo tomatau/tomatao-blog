@@ -1,13 +1,27 @@
 @import '~vars';
 @import '~tao-scss/index';
 
-.app {
-  color: $font-color;
+body {
+  color: $font-dark;
   font: {
-    size: rem(17px);
+    family: $font-family;
+    size: $default-font-size;
+  }
+  margin: 0;
+}
+
+.app {
+  ::selection {
+    background: $syntax-orange;
+  }
+
+  ::-moz-selection {
+    background: $syntax-orange;
   }
 }
 
 .content {
-  padding: rem(5px);
+  padding: 0 $side-padding;
+  margin: 0 auto;
+  max-width: $max-width;
 }

@@ -1,5 +1,6 @@
 export typeToReducer from 'type-to-reducer'
 export Bem from 'react-bem-helper'
-export { get } from './get'
+export { grab } from './grab'
+export { highlight } from './highlight'
 export { fetch } from './fetch'
 export { isNodeInTree, isPromise, hasWindow, isBrowser } from './predicates'

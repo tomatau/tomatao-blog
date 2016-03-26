@@ -1,13 +1,12 @@
 /* @flow */
-import { typeToReducer, get } from 'app/utils'
+import { typeToReducer, grab } from 'app/utils'
 import { propEq, findIndex, update } from 'ramda'
 import * as constants from './blog.constants'
-import marked from 'meta-marked'
 import type { FSA } from 'types/app.types'
 import type { PostFile } from 'types/post.types'
 
-const getPostList = get([ 'payload', 'postList' ])
-const getPost = get([ 'payload', 'post' ])
+const getPostList = grab([ 'payload', 'postList' ])
+const getPost = grab([ 'payload', 'post' ])
 
 type blogState = {
   isPending: boolean,
@@ -24,11 +23,11 @@ const initialState: blogState = {
 }
 
 const updateOrAddPost = (postList, post): Array<PostFile> => {
-  const filename = get('filename')(post)
+  const filename = grab('filename')(post)
   const idx = findIndex(propEq('filename', filename))(postList)
   const postDesc = {
     ...post,
-    ...marked(post.content),
+    // ...marked(post.content),
   }
   return (~idx)
     ? update(idx, postDesc, postList)

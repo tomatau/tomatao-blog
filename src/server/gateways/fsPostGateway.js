@@ -1,31 +1,26 @@
 /* @flow */
 import fs from 'fs'
-import { capitalize } from 'lodash'
-import { pipe, replace } from 'ramda'
+import { mapKeys } from 'lodash'
+import { pipe, split, map, trim } from 'ramda'
 import { POSTS } from 'config/paths'
+import marked from 'meta-marked'
 import type { PostGateway, PostFile } from 'types/post.types'
 
-// const log = {
-//   posts: debug('posts.server.gateway'),
-// }
-
-const filenameToTitle = pipe(
-  replace(/-/g, ' '), replace(/.md$/, ''), capitalize
-)
+const parseTags = pipe(split(','), map(trim))
+const keysToLower = (obj) => mapKeys(obj, (val, key) => key.toLowerCase())
 
 const serverGateway: PostGateway = {
   async getPostList(): Promise<Array<PostFile>> {
-    return fs.readdirSync(POSTS).map(p => ({
-      filename: p,
-      title: filenameToTitle(p),
-    }))
+    return await Promise.all(fs.readdirSync(POSTS).map(this.getPost))
   },
 
   async getPost(filename: string): Promise<PostFile> {
+    const mdFile = marked(fs.readFileSync(`${POSTS}/${filename}`, 'utf8'))
+    const meta = keysToLower(mdFile.meta)
     return {
       filename,
-      content: fs.readFileSync(`${POSTS}/${filename}`, 'utf8'),
-      title: filenameToTitle(filename),
+      markdown: mdFile.markdown,
+      meta: { ...meta, tags: parseTags(meta.tags || '') },
     }
   },
 }

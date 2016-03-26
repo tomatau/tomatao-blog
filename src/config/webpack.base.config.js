@@ -13,6 +13,7 @@ export default {
     body: [
       'babel-polyfill',
       `${APP}/entry.js`,
+      `${STYLES}/main.scss`,
     ],
   },
   output: {

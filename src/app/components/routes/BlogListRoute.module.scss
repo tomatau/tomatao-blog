@@ -1,35 +1,88 @@
 @import '~vars';
 @import '~tao-scss/index';
 
-.listItem {
-  font-family: $heading-font;
-  position: relative;
-  padding: rem(10px);
-  list-style-type: none;
-  margin-bottom: rem(10px);
+.listRoute {
+  max-width: $max-width;
+}
 
-  &:hover {
-    color: $link-color;
-    cursor: pointer;
-  }
+.list {
+  padding: 0;
+}
+
+.listItem {
+  list-style-type: none;
+  margin-bottom: rem(20);
+  position: relative;
 
   h3 {
+    color: lighten($font-dark, 20%);
     background: $grey;
-    display: inline;
-    padding: rem(10px);
-    box-shadow: 0px 0px 2px #000;
+    display: block;
+    padding: rem(10 5 10 20);
+    margin: 0;
 
     &:before {
       content: "";
       position: absolute;
-      top: -2px;
-      left: rem(-20px);
+      transform: rotate(0deg);
+      top: rem(8);
+      left: rem(-20);
+      transition: transform ease-in 200ms, left ease-in 200ms;
       display: inline-block;
-      border-width: rem(25px) rem(30px) rem(25px) 0;
-      border-color: transparent $info-blue transparent transparent;
+      border-width: rem(15 30 15 0);
+      border-color: transparent $tomatao-red transparent transparent;
       width: 0;
       height: 0;
       border-style: solid;
     }
   }
+
+  &:hover {
+    cursor: pointer;
+
+    h3 {
+      color: $font-dark;
+      background: $font-light;
+      box-shadow: rem(0 0 2) $font-dark;
+
+      &:before {
+        transform: rotate(180deg);
+        left: rem(-15);
+        border-color: transparent $tomatao-green transparent transparent;
+      }
+    }
+
+    .sub {
+      background: $font-light;
+      background: $tomatao-red;
+    }
+
+    .tagList {
+      visibility: visible;
+    }
+  }
+}
+
+.sub {
+  background: $tomatao-green;
+  color: $font-light;
+  font-size: $small-font-size;
+  margin: rem(2);
+  padding: rem(6 10);
+}
+
+.tagList {
+  position: absolute;
+  right: rem(-10);
+  top: rem(10);
+  background: darken($grey, 50%);
+  color: $font-light;
+  font-size: $small-font-size;
+  padding: rem(5);
+  visibility: hidden;
+}
+
+.tag {
+  margin-left: rem(5);
+  padding: rem(2);
 }

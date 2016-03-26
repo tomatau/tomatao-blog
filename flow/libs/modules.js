@@ -1,5 +1,6 @@
 declare module 'lodash' {
   declare function capitalize(str: string): string;
+  declare function mapKeys(_: any): any;
 }
 
 declare module 'ramda' {
@@ -8,6 +9,10 @@ declare module 'ramda' {
   declare function propEq(_: any): any;
   declare function findIndex(_: any): any;
   declare function update(_: any): any;
+  declare function intersperse(_: any): any;
+  declare function split(_: any): any;
+  declare function trim(_: any): any;
+  declare function map(_: any): any;
 }
 
 declare module 'redial' {
@@ -20,6 +25,10 @@ declare module 'react-redux' {
 
 declare module 'meta-marked' {
   declare function exports(args: any): any;
+}
+
+declare module 'classnames' {
+  declare function exports(...args: any): string;
 }
 
 declare module 'CSSModule' {
