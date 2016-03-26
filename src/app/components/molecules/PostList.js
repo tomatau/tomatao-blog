@@ -1,20 +1,18 @@
 import { connect } from 'react-redux'
 import Post from 'app/components/atoms/Post'
-import { blogActions, blogSelectors } from 'app/modules/blog'
+import { blogSelectors } from 'app/modules/blog'
+import { history } from 'app/services/history'
 import type { PostFile } from 'types/post.types'
 import style from './PostList.module.scss'
 
 @connect(state => ({
   postList: blogSelectors.getSortedPostList(state),
-}), { selectPost: blogActions.fetchPost })
+  pushRoute: history.push,
+}))
 class PostList extends React.Component {
   props: {
     postList: Array<PostFile>,
-    selectPost: Function,
-  };
-
-  static defaltProps = {
-    selectPost: () => null,
+    pushRoute: Function,
   };
 
   shouldComponentUpdate(nextProps:Object): boolean {
@@ -22,7 +20,7 @@ class PostList extends React.Component {
   }
 
   handlePostClick(post: PostFile) {
-    this.props.selectPost(post.filename)
+    this.props.pushRoute(`/${post.filename}`)
   }
 
   render() {

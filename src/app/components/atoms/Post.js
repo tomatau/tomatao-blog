@@ -42,7 +42,7 @@ class Post extends React.Component {
         onClick={::this.handleClickPost}>
         <h3>{post.meta.title}</h3>
         <p className={style.sub}>
-          <time>{formatDate(new Date(post.meta.date), 'ddd Do MMMM, YYYY')}</time>
+          <time>{formatDate(post.meta.date, 'ddd Do MMMM, YYYY')}</time>
         </p>
         {this.renderTagList()}
       </div>
