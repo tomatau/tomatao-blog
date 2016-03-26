@@ -2,11 +2,11 @@
 @import '~tao-scss/index';
 
 body {
+  background: $bg-white;
   color: $font-dark;
   font-family: $font-family;
   font-size: $default-font-size;
   margin: 0;
-  background: $bg-white;
 }
 
 .app {
