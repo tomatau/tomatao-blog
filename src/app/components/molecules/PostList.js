@@ -20,7 +20,7 @@ class PostList extends React.Component {
   }
 
   handlePostClick(post: PostFile) {
-    this.props.pushRoute(`/${post.filename}`)
+    this.props.pushRoute(`/post/${post.filename}`)
   }
 
   render() {
