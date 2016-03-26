@@ -5,7 +5,7 @@ import type { PostFile } from 'types/post.types'
 import style from './PostList.module.scss'
 
 @connect(state => ({
-  postList: blogSelectors.getPostList(state),
+  postList: blogSelectors.getSortedPostList(state),
 }), { selectPost: blogActions.fetchPost })
 class PostList extends React.Component {
   props: {

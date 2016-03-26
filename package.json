@@ -71,6 +71,7 @@
     "css-loader": "~0.23.0",
     "css-modules-require-hook": "^2.1.1",
     "cssnano": "^3.5.2",
+    "date-fns": "^0.17.0",
     "debug": "~2.2.0",
     "extract-text-webpack-plugin": "~1.0.1",
     "file-loader": "~0.8.4",

@@ -1,5 +1,6 @@
 import { intersperse, isEmpty } from 'ramda'
 import style from './Post.module.scss'
+import { formatDate } from 'app/utils'
 import type { PostFile } from 'types/post.types'
 
 const Tag = ({ children, ...props }) =>
@@ -41,7 +42,7 @@ class Post extends React.Component {
         onClick={::this.handleClickPost}>
         <h3>{post.meta.title}</h3>
         <p className={style.sub}>
-          <time>{post.meta.date}</time>
+          <time>{formatDate(new Date(post.meta.date), 'ddd Do MMMM, YYYY')}</time>
         </p>
         {this.renderTagList()}
       </div>

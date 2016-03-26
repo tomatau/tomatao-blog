@@ -20,7 +20,12 @@ const serverGateway: PostGateway = {
     return {
       filename,
       markdown: mdFile.markdown,
-      meta: { ...meta, tags: parseTags(meta.tags || '') },
+      meta: {
+        title: meta.title,
+        author: meta.author,
+        tags: parseTags(meta.tags || ''),
+        date: new Date(meta.date),
+      },
     }
   },
 }

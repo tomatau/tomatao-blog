@@ -4,7 +4,7 @@ export type PostFile = {
   markdown: string,
   meta: {
     title: string,
-    date: string,
+    date: Date,
     tags: Array<string>,
     author?: string,
   },

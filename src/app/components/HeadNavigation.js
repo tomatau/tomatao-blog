@@ -1,5 +1,5 @@
 import { IndexLink } from 'react-router'
-import logoPath from 'assets/tomatao.png'
+import logoPath from 'assets/tomatao-logo-02.svg'
 import styles from './HeadNavigation.module.scss'
 
 // Putting this inside a container will break activeClassName

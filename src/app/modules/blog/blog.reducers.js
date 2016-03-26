@@ -25,13 +25,9 @@ const initialState: blogState = {
 const updateOrAddPost = (postList, post): Array<PostFile> => {
   const filename = grab('filename')(post)
   const idx = findIndex(propEq('filename', filename))(postList)
-  const postDesc = {
-    ...post,
-    // ...marked(post.content),
-  }
   return (~idx)
-    ? update(idx, postDesc, postList)
-    : [ ...postList, postDesc ]
+    ? update(idx, post, postList)
+    : [ ...postList, post ]
 }
 
 export const blogReducers = typeToReducer({
