@@ -21,9 +21,7 @@ describe('Head Navigation Component', function() {
 
   describe('Links', ()=> {
     const links = [
-      { to: '/foo',     content: 'Foo' },
-      { to: '/bar',     content: 'Bar' },
-      { to: '/private', content: 'Private' },
+      // { to: '/',     content: 'tomatao blog' },
     ]
 
     it('only renders the necessary links', ()=> {
@@ -35,11 +33,16 @@ describe('Head Navigation Component', function() {
     it('renders an IndexLink', ()=> {
       const indexLink = this.tree.findNode(IndexLink.displayName)
       expect(indexLink.type).to.eql(IndexLink)
-      expect(indexLink.props).to.eql({
-        children: 'Home',
-        'to': '/',
-        'activeClassName': styles.active,
+      expect(indexLink.props).to.shallowDeepEqual({
+        to: '/',
+        className: styles.homeLink,
+        activeClassName: styles.active,
       })
+      const header = indexLink.props.children.find(n =>
+        n.props.className == styles.header
+      )
+      expect(header.type).to.eql('h2')
+      expect(header.props.children).to.contain('tomatao blog')
     })
 
     links.forEach(link =>
