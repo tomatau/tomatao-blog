@@ -53,10 +53,16 @@ describe('Client Render', function() {
     })
 
     describe('/', ()=> {
-      const posts = [
-        { filename: 'test.md', title: 'Test' },
-        { filename: 'another.md', title: 'Another' },
-      ]
+      const posts = [ {
+        filename: 'test.md',
+        markdown: '',
+        meta: { title: 'Test', date: '1st', tags: [] },
+      }, {
+        filename: 'another.md',
+        markdown: '',
+        meta: { title: 'Another', date: '2nd', tags: [] },
+      } ]
+
       before(()=> {
         this.server.respondWith(
           /\/api\/posts/, JSON.stringify(posts)
