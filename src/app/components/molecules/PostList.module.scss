@@ -8,4 +8,8 @@
 .listItem {
   list-style-type: none;
   margin-bottom: rem(20);
+
+  a {
+    text-decoration: none;
+  }
 }

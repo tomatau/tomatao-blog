@@ -11,7 +11,11 @@ const Tag = ({ children, ...props }) =>
 class Post extends React.Component {
   props: {
     post: PostFile,
-    onClickPost: Function,
+    onClickPost?: Function,
+  };
+
+  static defaultProps = {
+    onClickPost: () => null,
   };
 
   mapTags(tags) {
