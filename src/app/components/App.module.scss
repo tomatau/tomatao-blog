@@ -3,10 +3,8 @@
 
 body {
   color: $font-dark;
-  font: {
-    family: $font-family;
-    size: $default-font-size;
-  }
+  font-family: $font-family;
+  font-size: $default-font-size;
   margin: 0;
 }
 
@@ -14,14 +12,10 @@ body {
   ::selection {
     background: $syntax-orange;
   }
-
-  ::-moz-selection {
-    background: $syntax-orange;
-  }
 }
 
 .content {
-  padding: 0 $side-padding;
   margin: 0 auto;
   max-width: $max-width;
+  padding: 0 $side-padding;
 }

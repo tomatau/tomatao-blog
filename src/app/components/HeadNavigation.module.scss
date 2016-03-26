@@ -17,9 +17,9 @@
 }
 
 .inner {
-  padding: 0 $side-padding;
   margin: 0 auto;
   max-width: $max-width;
+  padding: 0 $side-padding;
 }
 
 .homeLink {
@@ -39,4 +39,6 @@
 }
 
 a.active {
+  color: $font-dark;
+  text-decoration: underline;
 }

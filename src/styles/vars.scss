@@ -1,15 +1,15 @@
 @import '~tao-scss/index';
 
-/* Font */
+// Font
 $font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 $default-font-size: em(16);
 $small-font-size: em(12);
 $header-font-size: em(26);
 $subheader-font-size: em(20);
 
-/* Colours */
+// Colours
 $font-dark: #222;
-$font-light: white;
+$font-light: #fff;
 
 $border-grey: #8e7f7f;
 $grey: #eceeef;
@@ -24,6 +24,6 @@ $function-green: $tomatao-green;
 $syntax-orange: #ff9119;
 $operator-pink: #ff69b4;
 
-/* Dimensions */
+// Dimensions
 $max-width: rem(720);
 $side-padding: 5vw;
