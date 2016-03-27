@@ -23,7 +23,7 @@ const getFilename = grab('selectedPost.filename')
 /*::`*/
 class BlogRoute extends React.Component {
   props: {
-    selectedPost?: PostFile,
+    selectedPost: PostFile,
     selectedHtml: string,
   };
 

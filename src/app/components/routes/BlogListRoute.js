@@ -7,6 +7,7 @@ import { blogActions, blogSelectors } from 'app/modules/blog'
 import PostList from 'app/components/molecules/PostList'
 import Spinner from 'app/components/atoms/Spinner'
 import style from './BlogListRoute.module.scss'
+import type { PostFile } from 'types/post.types'
 
 /*::`*/
 @provideHooks({
@@ -18,7 +19,7 @@ import style from './BlogListRoute.module.scss'
 /*::`*/
 class BlogListRoute extends React.Component {
   props: {
-    postList: Array,
+    postList: Array<PostFile>,
   };
 
   render() {
