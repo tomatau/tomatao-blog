@@ -7,7 +7,7 @@ Date:   March 27, 2016
 
 # Hello, world!
 
-Today I have created a blog. This blog. Tomatao Blog. All of the source code for tomatao blog is available [on github](https://github.com/tomatau/tomatao-blog). This blog, tomatao blog, will strive to produce concise posts the share insights into software development by Thomas `tomatao` Hudspith-Tatham.
+Today I have created a blog. This blog. Tomatao Blog. All of the source code for tomatao blog is available [on github](https://github.com/tomatau/tomatao-blog). This blog, tomatao blog, will strive to produce concise posts that share insights into software development by Thomas `tomatao` Hudspith-Tatham.
 
 ## Impressive
 
