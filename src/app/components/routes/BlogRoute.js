@@ -68,7 +68,7 @@ class BlogRoute extends React.Component {
               shortname={'Tomatao Blog'}
               identifier={location.pathname}
               title={selectedPost.meta.title}
-              // url="http://www.example.com/example-thread"
+              url={`http://tomatao-blog.herokuapp.com/${location.pathname}`}
             />
           </div>
         )}
