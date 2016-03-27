@@ -11,7 +11,7 @@ describe('App Component', function() {
   })
 
   it('renders a div tag with app className', ()=> {
-    const div = this.tree.find('div')
+    const div = this.tree.find('div').first()
     expect(div).to.have.length(1)
     expect(div.hasClass(styles.app)).to.eql(true)
   })
