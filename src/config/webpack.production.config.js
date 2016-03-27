@@ -3,6 +3,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import webpackConfig, { babelLoaderConfig } from 'config/webpack.base.config'
 import { isomorphicPlugin } from 'server/isomorphicTools'
 import autoprefixer from 'autoprefixer'
+import OfflinePlugin from 'offline-plugin'
 import cssnano from 'cssnano'
 
 export default {
@@ -16,6 +17,27 @@ export default {
       compress: {
         screw_ie8: true,
         warnings: false,
+      },
+    }),
+    new OfflinePlugin({
+      caches: {
+        main: [
+          '/',
+          ':rest:',
+        ],
+        additional: [
+          '/post/*',
+        ],
+      },
+      externals: [ '/', '/post/*' ],
+      scope: '/',
+      updateStrategy: 'all',
+      version: 'v1',
+      ServiceWorker: {
+        output: 'sw.js',
+      },
+      AppCache: {
+        directory: 'appcache/',
       },
     }),
   ],

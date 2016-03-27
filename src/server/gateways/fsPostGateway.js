@@ -11,14 +11,16 @@ const keysToLower = (obj) => mapKeys(obj, (val, key) => key.toLowerCase())
 
 const serverGateway: PostGateway = {
   async getPostList(): Promise<Array<PostFile>> {
-    return await Promise.all(fs.readdirSync(POSTS).map(this.getPost))
+    return await Promise.all(fs.readdirSync(POSTS)
+      .map(filename => filename.replace(/\.md$/, ''))
+      .map(this.getPost))
   },
 
   async getPost(filename: string): Promise<PostFile> {
-    const mdFile = marked(fs.readFileSync(`${POSTS}/${filename}`, 'utf8'))
+    const mdFile = marked(fs.readFileSync(`${POSTS}/${filename}.md`, 'utf8'))
     const meta = keysToLower(mdFile.meta)
     return {
-      filename,
+      filename: filename,
       markdown: mdFile.markdown,
       meta: {
         title: meta.title,
