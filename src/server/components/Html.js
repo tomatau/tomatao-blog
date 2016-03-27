@@ -30,7 +30,7 @@ export class Html extends React.Component {
       <html lang='en'>
         <head>
           {hasWindow ? null : DocumentMeta.renderAsReact()}
-          <link rel='icon' type='image/x-icon' href='favicon.ico' />
+          <link rel='icon' type='image/x-icon' href='/favicon.ico' />
           {headStyles.map((style, i) =>
             <link
               href={style} key={i}

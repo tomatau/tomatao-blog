@@ -1,7 +1,7 @@
 /* @flow */
 import fs from 'fs'
 import { mapKeys } from 'lodash'
-import { pipe, split, map, trim, filter, identity } from 'ramda'
+import { pipe, split, map, trim, filter, identity, replace } from 'ramda'
 import { POSTS } from 'config/paths'
 import marked from 'meta-marked'
 import type { PostGateway, PostFile } from 'types/post.types'
@@ -12,7 +12,7 @@ const keysToLower = (obj) => mapKeys(obj, (val, key) => key.toLowerCase())
 const serverGateway: PostGateway = {
   async getPostList(): Promise<Array<PostFile>> {
     return await Promise.all(fs.readdirSync(POSTS)
-      .map(filename => filename.replace(/\.md$/, ''))
+      .map(replace(/\.md$/, ''))
       .map(this.getPost))
   },
 
