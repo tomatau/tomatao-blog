@@ -65,7 +65,7 @@ class BlogRoute extends React.Component {
               }}
             />
             <ReactDisqusThread
-              shortname={'Tomatao Blog'}
+              shortname={'tomatao-blog'}
               identifier={location.pathname}
               title={selectedPost.meta.title}
               url={`http://tomatao-blog.herokuapp.com${location.pathname}`}
