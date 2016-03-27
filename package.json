@@ -11,7 +11,8 @@
     "dev": "node ./scripts/babel.entry.js --dev",
     "lint": "eslint . --ext .js",
     "check": "flow check",
-    "lint:styles": "sass-lint --verbose -c .sass-lint.yml"
+    "lint:styles": "sass-lint --verbose -c .sass-lint.yml",
+    "postinstall": "npm run build"
   },
   "pre-push": [
     "lint",
