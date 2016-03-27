@@ -7,9 +7,9 @@
 }
 
 .me {
-  padding: rem(20);
-  background: #fff;
+  background: $white;
   font-size: $small-font-size;
+  padding: rem(20);
 
   p:first-of-type {
     margin-top: 0;
@@ -27,8 +27,8 @@
 }
 
 .findMe {
-  margin: 0;
   list-style-type: none;
+  margin: 0;
   padding: 0;
 
   li {
@@ -38,7 +38,7 @@
     a {
       color: $font-dark;
       text-decoration: none;
-      
+
       &:hover {
         color: $tomatao-green;
       }

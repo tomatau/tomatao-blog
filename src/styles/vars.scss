@@ -10,8 +10,9 @@ $sectionheader-font-size: em(16);
 
 // Colours
 $bg-white: #fefffb;
+$white: #fff;
 $font-dark: #222;
-$font-light: #fff;
+$font-light: $white;
 
 $dark-grey: #3a3a3a;
 $grey: #eceeef;

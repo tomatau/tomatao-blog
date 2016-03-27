@@ -2,10 +2,12 @@
 @import '~tao-scss/index';
 
 .blogRoute {
-  h1, h2, h3 {
-    margin: 0 0 rem(20);
+  h1,
+  h2,
+  h3 {
     background: $dark-grey;
-    color: white;
+    color: $white;
+    margin: 0 0 rem(20);
     padding: rem(10);
   }
 
@@ -23,21 +25,20 @@
 
   a {
     color: $tomatao-green;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
 
     &:hover {
-      text-decoration: underline;
       color: $font-dark;
+      text-decoration: underline;
     }
   }
 }
 
 .postedOn {
-  display: block;
   background: $tomatao-green;
+  color: $white;
+  display: block;
   font-size: $small-font-size;
   padding: rem(5 10);
-  color: white;
-  // margin-bottom: rem(20);
 }

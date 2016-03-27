@@ -3,26 +3,28 @@
 
 .spinner {
   margin: rem(100) auto 0;
-  width: rem(( 18 + 10 ) * 3);
   text-align: center;
+  width: rem(( 18 + 10 ) * 3);
 }
 
-.bounce1, .bounce2, .bounce3 {
-  width: rem(18);
-  height: rem(18);
+.bounce1,
+.bounce2,
+.bounce3 {
+  animation: bouncedelay 1.4s infinite ease-in-out both;
   background-color: $font-dark;
-  margin: 0 rem(5);
   border-radius: 100%;
   display: inline-block;
-  animation: bouncedelay 1.4s infinite ease-in-out both;
+  height: rem(18);
+  margin: 0 rem(5);
+  width: rem(18);
 }
 
 .bounce1 {
-  animation-delay: -0.32s;
+  animation-delay: -.32s;
 }
 
 .bounce2 {
-  animation-delay: -0.16s;
+  animation-delay: -.16s;
 }
 
 .bounce3 {
@@ -30,9 +32,13 @@
 }
 
 @keyframes bouncedelay {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     transform: scale(0);
-  } 40% {
-    transform: scale(1.0);
+  }
+
+  40% {
+    transform: scale(1);
   }
 }

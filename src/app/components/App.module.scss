@@ -16,10 +16,10 @@ body {
 }
 
 .wrapper {
-  margin: 0 auto rem(20);
-  padding: 0 $side-padding;
   display: flex;
   flex-direction: column;
+  margin: 0 auto rem(20);
+  padding: 0 $side-padding;
 }
 
 .content {
@@ -27,20 +27,20 @@ body {
 }
 
 .aside {
-  margin-top: rem(20);
   flex: 1;
+  margin-top: rem(20);
 }
 
 @include breakpoint('md') {
   .wrapper {
-    max-width: 90vw;
     flex-direction: row;
+    max-width: 90vw;
   }
 
   .content {
+    flex: 2;
     margin-right: 2vw;
     max-width: 59vw;
-    flex: 2;
   }
 
   .aside {

@@ -11,3 +11,5 @@ rules:
     - 1
     -
       max-depth: 3
+  no-mergeable-selectors: 0
+  force-pseudo-nesting: 0
