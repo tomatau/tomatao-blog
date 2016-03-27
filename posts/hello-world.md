@@ -11,7 +11,7 @@ Today I have created a blog. This blog. Tomatao Blog. All of the source code for
 
 ## Impressive
 
-When you view any page on this blog, you will download at least 150KB of JavaScript (JS). All of said JS is completely **pointless**. The blog will work just fine without it.
+When you view any page on this blog, you will download at least 150KB of <abbr title="JavaScript">JS</abbr>. All of said <abbr title="JavaScript">JS</abbr> is completely **pointless**. The blog will work just fine without it.
 
 There are a whole host of practices used to build this blog, and literally, no functionality. You may even struggle to find how to get back to the list of posts after clicking on one.
 
