@@ -5,7 +5,7 @@ declare module 'lodash' {
 
 declare module 'ramda' {
   declare function pipe(...Fn: any): any;
-  declare function replace(reg: RegExp | string, str: string): string;
+  declare function replace(reg: RegExp | string, str: string): Function;
   declare function propEq(_: any): any;
   declare function findIndex(_: any): any;
   declare function update(_: any): any;
