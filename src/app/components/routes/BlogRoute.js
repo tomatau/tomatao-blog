@@ -53,9 +53,9 @@ class BlogRoute extends React.Component {
     const { selectedHtml, selectedPost, location } = this.props
     return (
       <section className={cx('BlogRoute', style.blogRoute)}>
-        <DocumentMeta extend title={`Tomatao Blog | ${selectedPost.meta.title}`} />
         {isEmpty(selectedHtml) ? <Spinner /> : (
           <div>
+            <DocumentMeta extend title={`Tomatao Blog | ${selectedPost.meta.title}`} />
             <span className={style.postedOn}>
               Posted on {formatDate(selectedPost.meta.date, 'ddd Do MMMM, YYYY')} by {selectedPost.meta.author}
             </span>

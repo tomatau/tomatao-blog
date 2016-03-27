@@ -40,6 +40,10 @@ declare module 'react-document-meta' {
   declare function exports(...args: any): any;
 }
 
+declare module 'react-disqus-thread' {
+  declare function exports(...args: any): any;
+}
+
 declare module 'CSSModule' {
   declare var exports: { [key: string]: string };
 }

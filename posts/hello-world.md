@@ -1,55 +1,22 @@
 ---
 Title:  Hello, world!
 Author: Thomas `tomatao` Hudspith-Tatham
-Tags: test, jsx
-Date:   March 6, 2016
+Tags:   general, open-source
+Date:   March 27, 2016
 ---
 
 # Hello, world!
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Today I have created a blog. This blog. Tomatao Blog. All of the source code for tomatao blog is available [on github](https://github.com/tomatau/tomatao-blog). This blog, tomatao blog, will strive to produce concise posts the share insights into software development by Thomas `tomatao` Hudspith-Tatham.
 
-```jsx
-const hello = (who) => {
-  return <span>`Hello, ${who}!`</span>
-}
+## Impressive
 
-hello('world')
-```
+When you view any page on this blog, you will download at least 150KB of JavaScript (JS). All of said JS is completely **pointless**. The blog will work just fine without it.
 
-Write stuff in here
+There are a whole host of practices used to build this blog, and literally, no functionality. You may even struggle to find how to get back to the list of posts after clicking on one.
 
-- make a list
-- more list with **BOLD**
+### I like the cut of your jib!
 
-## Sub heading
+Stay tuned for more posts!
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-1. lorem
-2. ipsum
-3. dolor
-4. sit.
-
-```html
-<span>Hi</span>
-```
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-### Subheading 3
-
-That was some [html](https://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=9&cad=rja&uact=8&ved=0ahUKEwii65-rk97LAhVJaRQKHetGC7UQFghVMAg&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHTML&usg=AFQjCNGWzvKOMS3mJtkmYV17j6YJ6s2zNw&sig2=ENRFblQVVEh_AXxbgfoYBQ) in a code block.
-
-```scss
-$font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
-$default-font-size: 1em;
-
-span {
-  font-family: $font-family;
-}
-
-.moo #hi {
-  color: red;
-}
-```
+- tomatao

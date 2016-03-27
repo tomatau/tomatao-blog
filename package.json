@@ -36,7 +36,7 @@
     "webpack"
   ],
   "author": "Thomas `tomatao` Hudspith-Tatham <tom@tomatao.co.uk>",
-  "license": "MIT",
+  "license": "GNU GPLv3",
   "bugs": {
     "url": "https://github.com/tomatau/tomatao-blog/issues"
   },
