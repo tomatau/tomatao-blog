@@ -15,6 +15,8 @@ When you view any page on this blog, you will download at least 150KB of <abbr t
 
 There are a whole host of practices used to build this blog, and literally, no functionality. You may even struggle to find how to get back to the list of posts after clicking on one.
 
+Another noteworthy point, there is a web socket connection between the client and server, right now it also achieves absolutely nothing. It's merely there for a pretty message in the console. Who knows, maybe some time in the future it'll have worth.
+
 ### I like the cut of your jib!
 
 Stay tuned for more posts!
