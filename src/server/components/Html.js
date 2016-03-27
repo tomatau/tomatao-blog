@@ -5,7 +5,6 @@ import { hasWindow } from 'app/utils'
 const { PropTypes } = React
 
 export class Html extends React.Component {
-
   static propTypes = {
     initialState: PropTypes.object,
     headScripts: PropTypes.array,
@@ -79,5 +78,4 @@ export class Html extends React.Component {
     const { children } = this.props
     return (children == null) ? null : ReactDOMServer.renderToString(children)
   }
-
 }
