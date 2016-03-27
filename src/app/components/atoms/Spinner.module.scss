@@ -1,0 +1,38 @@
+@import '~vars';
+@import '~tao-scss/index';
+
+.spinner {
+  margin: rem(100) auto 0;
+  width: rem(( 18 + 10 ) * 3);
+  text-align: center;
+}
+
+.bounce1, .bounce2, .bounce3 {
+  width: rem(18);
+  height: rem(18);
+  background-color: $font-dark;
+  margin: 0 rem(5);
+  border-radius: 100%;
+  display: inline-block;
+  animation: bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.bounce1 {
+  animation-delay: -0.32s;
+}
+
+.bounce2 {
+  animation-delay: -0.16s;
+}
+
+.bounce3 {
+  animation-delay: 0s;
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+  } 40% {
+    transform: scale(1.0);
+  }
+}

@@ -1,0 +1,52 @@
+@import '~vars';
+@import '~tao-scss/index';
+
+.meContainer {
+  background: $grey;
+  padding: rem(5);
+}
+
+.me {
+  padding: rem(20);
+  background: #fff;
+  font-size: $small-font-size;
+
+  p:first-of-type {
+    margin-top: 0;
+  }
+
+  p > a {
+    color: $font-dark;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      color: $tomatao-red;
+    }
+  }
+}
+
+.findMe {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    width: 50%;
+
+    a {
+      color: $font-dark;
+      text-decoration: none;
+      
+      &:hover {
+        color: $tomatao-green;
+      }
+    }
+  }
+}
+
+.avatar {
+  float: left;
+  margin-right: rem(10);
+}

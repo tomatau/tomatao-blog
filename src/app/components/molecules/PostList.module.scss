@@ -3,11 +3,16 @@
 
 .list {
   padding: 0;
+  margin: 0;
 }
 
 .listItem {
   list-style-type: none;
   margin-bottom: rem(20);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 
   a {
     text-decoration: none;

@@ -3,7 +3,7 @@
 
 .msg {
   display: block;
-  margin-bottom: rem(5px);
+  margin-bottom: rem(5);
 
   &--info {
     color: $info-blue;
@@ -19,9 +19,9 @@
 }
 
 .close {
-  border: 1px solid $border-grey;
-  border-radius: rem(10px);
-  padding: 1px rem(5px);
+  border: 1px solid $dark-grey;
+  border-radius: rem(10);
+  padding: rem(1 5);
 
   &:hover {
     cursor: pointer;

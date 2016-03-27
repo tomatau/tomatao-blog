@@ -2,19 +2,19 @@
 import { provideHooks } from 'redial'
 import cx from 'classnames'
 import { connect } from 'react-redux'
+import { isEmpty } from 'ramda'
 import { blogActions, blogSelectors } from 'app/modules/blog'
 import { grab, highlight } from 'app/utils'
+import { formatDate } from 'app/utils'
+import Spinner from 'app/components/atoms/Spinner'
+import style from './BlogRoute.module.scss'
 import type { PostFile } from 'types/post.types'
-// import style from './BlogRoute.module.scss'
 
 const getFilename = grab('selectedPost.filename')
 
 /*::`*/
 @provideHooks({
-  prefetch: ({ dispatch, params }) => {
-    // console.log(params.filename)
-    return dispatch(blogActions.fetchPost(params.filename)).payload.promise
-  },
+  prefetch: ({ dispatch, params }) => dispatch(blogActions.fetchPost(params.filename)).payload.promise,
 })
 @connect(state => ({
   selectedPost: blogSelectors.getSelectedPost(state),
@@ -24,8 +24,6 @@ const getFilename = grab('selectedPost.filename')
 class BlogRoute extends React.Component {
   props: {
     selectedPost?: PostFile,
-    fetchPost: Function,
-    hasSelectedPost: boolean,
     selectedHtml: string,
   };
 
@@ -48,14 +46,21 @@ class BlogRoute extends React.Component {
   }
 
   render() {
-    const { selectedHtml } = this.props
+    const { selectedHtml, selectedPost } = this.props
     return (
-      <section className={cx('BlogRoute')}>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: selectedHtml,
-          }}
-        />
+      <section className={cx('BlogRoute', style.blogRoute)}>
+        {isEmpty(selectedHtml) ? <Spinner /> : (
+          <div>
+            <span className={style.postedOn}>
+              Posted on {formatDate(selectedPost.meta.date, 'ddd Do MMMM, YYYY')} by {selectedPost.meta.author}
+            </span>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: selectedHtml,
+              }}
+            />
+          </div>
+        )}
       </section>
     )
   }

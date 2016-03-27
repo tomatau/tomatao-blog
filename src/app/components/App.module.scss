@@ -15,8 +15,41 @@ body {
   }
 }
 
-.content {
-  margin: 0 auto;
-  max-width: $max-width;
+.wrapper {
+  margin: 0 auto rem(20);
   padding: 0 $side-padding;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+.aside {
+  margin-top: rem(20);
+  flex: 1;
+}
+
+@include breakpoint('md') {
+  .wrapper {
+    max-width: 90vw;
+    flex-direction: row;
+  }
+
+  .content {
+    margin-right: 2vw;
+    max-width: 59vw;
+    flex: 2;
+  }
+
+  .aside {
+    margin-top: 0;
+  }
+}
+
+@include breakpoint('desktop') {
+  .wrapper {
+    max-width: rem(1000);
+  }
 }

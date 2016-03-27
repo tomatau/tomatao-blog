@@ -6,9 +6,6 @@ import blogPaths from 'app/modules/blog/blog.paths'
 
 const parseBody = koaBody()
 const apiRouter = Router({ prefix: API_ENDPOINT })
-// const log = {
-//   routes: debug('routes'),
-// }
 
 apiRouter
   .all('ping', '/ping',

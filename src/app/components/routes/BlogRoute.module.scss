@@ -1,0 +1,43 @@
+@import '~vars';
+@import '~tao-scss/index';
+
+.blogRoute {
+  h1, h2, h3 {
+    margin: 0 0 rem(20);
+    background: $dark-grey;
+    color: white;
+    padding: rem(10);
+  }
+
+  h1 {
+    font-size: $header-font-size;
+  }
+
+  h2 {
+    font-size: $subheader-font-size;
+  }
+
+  h3 {
+    font-size: $sectionheader-font-size;
+  }
+
+  a {
+    color: $tomatao-green;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+      color: $font-dark;
+    }
+  }
+}
+
+.postedOn {
+  display: block;
+  background: $tomatao-green;
+  font-size: $small-font-size;
+  padding: rem(5 10);
+  color: white;
+  // margin-bottom: rem(20);
+}

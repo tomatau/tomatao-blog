@@ -1,9 +1,8 @@
 import DocumentMeta from 'react-document-meta'
 import HeadNavigation from 'app/components/HeadNavigation'
 import FlashMessages from 'app/components/containers/FlashMessages'
-// example s?css module import
+import AboutMe from 'app/components/molecules/AboutMe'
 import style from './App.module.scss'
-// example s?css import (no module)
 import './App.scss'
 
 const log = {
@@ -27,9 +26,14 @@ class App extends React.Component {
         <DocumentMeta {...metaData} />
         <HeadNavigation />
         <FlashMessages />
-        <main className={style.content}>
-          {children}
-        </main>
+        <div className={style.wrapper}>
+          <main className={style.content}>
+            {children}
+          </main>
+          <aside className={style.aside}>
+            <AboutMe />
+          </aside>
+        </div>
       </div>
     )
   }
