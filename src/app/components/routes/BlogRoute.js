@@ -1,4 +1,5 @@
 /* @flow */
+import DocumentMeta from 'react-document-meta'
 import { provideHooks } from 'redial'
 import cx from 'classnames'
 import { connect } from 'react-redux'
@@ -7,6 +8,7 @@ import { blogActions, blogSelectors } from 'app/modules/blog'
 import { grab, highlight } from 'app/utils'
 import { formatDate } from 'app/utils'
 import Spinner from 'app/components/atoms/Spinner'
+import ReactDisqusThread from 'react-disqus-thread'
 import style from './BlogRoute.module.scss'
 import type { PostFile } from 'types/post.types'
 
@@ -14,7 +16,8 @@ const getFilename = grab('selectedPost.filename')
 
 /*::`*/
 @provideHooks({
-  prefetch: ({ dispatch, params }) => dispatch(blogActions.fetchPost(params.filename)).payload.promise,
+  prefetch: ({ dispatch, params }) =>
+    dispatch(blogActions.fetchPost(params.filename)).payload.promise,
 })
 @connect(state => ({
   selectedPost: blogSelectors.getSelectedPost(state),
@@ -25,6 +28,7 @@ class BlogRoute extends React.Component {
   props: {
     selectedPost: PostFile,
     selectedHtml: string,
+    location: { pathname: string },
   };
 
   shouldComponentUpdate(nextProps:Object): boolean {
@@ -46,9 +50,10 @@ class BlogRoute extends React.Component {
   }
 
   render() {
-    const { selectedHtml, selectedPost } = this.props
+    const { selectedHtml, selectedPost, location } = this.props
     return (
       <section className={cx('BlogRoute', style.blogRoute)}>
+        <DocumentMeta extend title={`Tomatao Blog | ${selectedPost.meta.title}`} />
         {isEmpty(selectedHtml) ? <Spinner /> : (
           <div>
             <span className={style.postedOn}>
@@ -58,6 +63,12 @@ class BlogRoute extends React.Component {
               dangerouslySetInnerHTML={{
                 __html: selectedHtml,
               }}
+            />
+            <ReactDisqusThread
+              shortname={'Tomatao Blog'}
+              identifier={location.pathname}
+              title={selectedPost.meta.title}
+              // url="http://www.example.com/example-thread"
             />
           </div>
         )}
