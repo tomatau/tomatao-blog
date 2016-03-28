@@ -1,11 +1,13 @@
 import '~/scripts/helpers/cssModulesHook'
 import '~/scripts/helpers/globalJSDOM'
-import '~/test/hooks'
 import path from 'path'
 import Mocha from 'mocha'
 import glob from 'glob'
 import { TESTS, ROOT, SRC } from 'config/paths'
 import { argv } from 'yargs'
+import nodeHookFilename from 'node-hook-filename'
+
+nodeHookFilename([ '.jpeg', '.jpg', '.png', '.svg' ])
 
 const mocha = new Mocha({
   reporter: argv.reporter || 'nyan',

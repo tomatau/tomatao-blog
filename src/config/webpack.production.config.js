@@ -48,7 +48,7 @@ export default {
   module: {
     loaders: [ {
       test: /module\.s?css$/,
-      include: [ /\/src\// ],
+      include: [ /src\/app/, /src\/styles/ ],
       loader: ExtractTextPlugin.extract(
         'style',
         'css?modules&localIdentName=[path][name]-[local]' +
@@ -57,7 +57,7 @@ export default {
       ),
     }, {
       test: /\.s?css$/,
-      include: [ /\/src\// ],
+      include: [ /src\/app/, /src\/styles/ ],
       exclude: /module\.s?css$/,
       loader: ExtractTextPlugin.extract(
         'style', 'css!postcss!sass?outputStyle=compressed'
