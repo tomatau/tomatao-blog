@@ -4,23 +4,31 @@
 .blogRoute {
   h1,
   h2,
-  h3 {
-    background: $dark-grey;
+  h3,
+  h4 {
     color: $white;
     margin: 0 0 rem(20);
     padding: rem(10);
   }
 
   h1 {
+    background: $dark-grey;
     font-size: $header-font-size;
   }
 
   h2 {
+    background: lighten($dark-grey, 10%);
     font-size: $subheader-font-size;
   }
 
   h3 {
+    background: lighten($dark-grey, 20%);
     font-size: $sectionheader-font-size;
+  }
+
+  h4 {
+    background: lighten($dark-grey, 40%);
+    font-size: $note-font-size;
   }
 
   a {

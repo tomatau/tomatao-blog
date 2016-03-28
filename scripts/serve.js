@@ -13,9 +13,11 @@ const log = {
 app.use(serve(STATIC))
 
 isomorphicTools.server(ROOT, () => {
+  log.app('ISOMORPHIC HANDLER')
+  const { rootRouter, setRoutes } = require(`${SERVER}/router`)
+  setRoutes(isomorphicTools.assets())
+
   app.use(function *() {
-    const { rootRouter, setRoutes } = require(`${SERVER}/router`)
-    setRoutes(isomorphicTools.assets())
     yield rootRouter.routes()
   })
 })

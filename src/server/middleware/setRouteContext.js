@@ -27,9 +27,7 @@ export default function(makeRoutes) {
             dispatch: store.dispatch,
             location: renderProps.location,
             params: renderProps.params,
-          }).then(() => {
-            resolve(<RouterContext {...renderProps} />)
-          })
+          }).then(() => resolve(<RouterContext {...renderProps} />))
         })
       })
       yield next

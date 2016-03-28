@@ -2,7 +2,6 @@ import 'config/environment'
 import '~/scripts/helpers/cssModulesHook'
 import '~/scripts/helpers/cleanAssetJson'
 import { ROOT, SERVER, SOCKETS } from 'config/paths'
-import path from 'path'
 import { argv } from 'yargs'
 import http from 'http'
 import webpack from 'webpack'
@@ -49,12 +48,12 @@ isomorphicTools.server(ROOT, () => {
 const server = http.createServer(app.callback())
 global.socketServer = require(SOCKETS)(server)
 
-const watcher = chokidar.watch(path.join(SERVER))
+const watcher = chokidar.watch(SERVER)
 log.hot('Watching server source')
 watcher.on('ready', () => {
   watcher.on('all', () => {
     log.hot('Clearing /server/ module cache from server')
-    Object.keys(require.cache).forEach((id) => {
+    Object.keys(require.cache).forEach(id => {
       if (/\/server\//.test(id)) delete require.cache[id]
     })
   })
@@ -63,7 +62,7 @@ watcher.on('ready', () => {
 log.hot('Watching client app source')
 compiler.plugin('done', () => {
   log.hot('Clearing /app/ module cache from server')
-  Object.keys(require.cache).forEach((id) => {
+  Object.keys(require.cache).forEach(id => {
     if (/\/app\//.test(id)) delete require.cache[id]
     if (/\/server\//.test(id)) delete require.cache[id]
   })

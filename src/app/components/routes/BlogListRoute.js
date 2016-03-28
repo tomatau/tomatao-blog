@@ -11,7 +11,8 @@ import type { PostFile } from 'types/post.types'
 
 /*::`*/
 @provideHooks({
-  prefetch: ({ dispatch }) => dispatch(blogActions.fetchPostList()).payload.promise,
+  prefetch: ({ dispatch }) =>
+    dispatch(blogActions.fetchPostList()).payload.promise,
 })
 @connect(state => ({
   postList: blogSelectors.getParsedPostList(state),
