@@ -7,7 +7,7 @@ Date:   March 28, 2016
 
 # Server and CSS Hot Updates
 
-#### **Pre-requisites: This article assumes you know a fair bit about universal react applications already. You're familiar with Webpack and ES6.**
+#### **PRE-REQUISITES:** This article assumes you know a fair bit about universal react applications already. You're familiar with Webpack and ES6.
 
 Just a few years back, and the web developer's best friend was **live page refreshes**, a tool that would refresh the browser for you as you coded! Because pressing refresh just wasn't acceptable... But these days, we've hit a whole new level, hot updates.
 
@@ -64,7 +64,7 @@ Now you can benefit from both the traditional power of CSS with the new shiny ho
 import style from './styles.css'
 ```
 
-#### **IMPORTANT**: To keep hot loading the styles, turn off ExtractTextPlugin for development!!
+#### **IMPORTANT:** To keep hot loading the styles, turn off ExtractTextPlugin for development!!
 
 When optimising your styles, it's a good practice to use Webpack's [ExtractTextPlugin](https://github.com/webpack/extract-text-webpack-plugin) to combine the CSS modules back into one style-sheet. However, this brings us back to the original problem -- a single CSS file. So simply, turn it off for development! Ta-da!
 
