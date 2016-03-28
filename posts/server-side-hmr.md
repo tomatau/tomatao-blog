@@ -85,7 +85,7 @@ One popular solution to '<em>hot</em>' reloading the server is to use node's **c
 ```js
 if (require("piping")()) {
   // application logic here
-  app.listen(3000);
+  app.listen(PORT);
 }
 ```
 
