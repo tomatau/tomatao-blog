@@ -2,6 +2,20 @@
 @import '~tao-scss/index';
 
 .blogRoute {
+  // before JS
+  code[class*=lang-] {
+    background-size: 1em 1em;
+    background: $black;
+    color: lighten($tomatao-green, 15%);
+    display: block;
+    font-family: $font-family;
+    font-size: smaller;
+    line-height: 1.5;
+    margin: .5em 0;
+    overflow: auto;
+    padding: .4em .8em;
+  }
+
   h1,
   h2,
   h3,
