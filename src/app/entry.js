@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom'
 import { socket } from 'app/services/socket'
 import { dispatch } from 'app/services/store'
 import { Main, Dev } from 'app/main'
-// import offlineRuntime from 'offline-plugin/runtime'
+import offlineRuntime from 'offline-plugin/runtime'
 
 debug.enable(process.env.DEBUG)
 
@@ -14,7 +14,7 @@ const log = {
 log.env(`Running in [${process.env.NODE_ENV}] environment`)
 
 if (process.env.NODE_ENV === 'production') {
-  // offlineRuntime.install()
+  offlineRuntime.install()
 }
 
 socket.on('connect', () => {
