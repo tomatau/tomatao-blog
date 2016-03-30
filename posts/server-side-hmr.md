@@ -15,7 +15,7 @@ On the client, Webpack, React and Babel have paved the way with hot update serve
 
 ## Hot Styles
 
-As styles often live in monolith static CSS files, hot updates don't work for free. There are two solutions here, **in-line styles** or [CSS modules](https://github.com/css-modules/css-modules).
+As styles often live in monolith static CSS files, hot updates don't work for free. There are two solutions here, **in-line styles** or splitting up the CSS file.
 
 **In-line styles** are the simple solution, they're just JavaScript objects and work like any other hot update. In combination with Babel-Transform, no changes are needed to a regular hot configuration.
 
@@ -67,6 +67,8 @@ import style from './styles.css'
 #### **IMPORTANT:** To keep hot loading the styles, turn off ExtractTextPlugin for development!!
 
 When optimising your styles, it's a good practice to use Webpack's [ExtractTextPlugin](https://github.com/webpack/extract-text-webpack-plugin) to combine the CSS modules back into one style-sheet. However, this brings us back to the original problem -- a single CSS file. So simply, turn it off for development! Ta-da!
+
+#### **NB:** You don't need to use CSS-modules for this, normal CSS includes will still work here as Webpack is already bundling each imported CSS file separately
 
 ## Hot Server
 
