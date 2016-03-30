@@ -1,4 +1,14 @@
 @import '~tao-scss/index';
+$breakpoints: (
+  palm    max(em(480)),
+  mobile  between(em(481), em(768)),
+  sm      min(em(481)),
+  tablet  between(em(769), em(980)),
+  md      min(em(769)),
+  laptop  between(em(981), em(1023)),
+  lg      min(em(981)),
+  desktop min(em(1024))
+) !default;
 
 // Font
 $font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
