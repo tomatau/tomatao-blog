@@ -1,6 +1,7 @@
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import webpackConfig, { babelLoaderConfig } from 'config/webpack.base.config'
+import { APP } from 'config/paths'
 import { isomorphicPlugin } from 'server/isomorphicTools'
 import autoprefixer from 'autoprefixer'
 import OfflinePlugin from 'offline-plugin'
@@ -8,6 +9,13 @@ import cssnano from 'cssnano'
 
 export default {
   ...webpackConfig,
+  entry: {
+    ...webpackConfig.entry,
+    head: [
+      ...webpackConfig.entry.head,
+      `${APP}/utils/ga.js`,
+    ],
+  },
   devtool: null,
   plugins: [
     isomorphicPlugin,

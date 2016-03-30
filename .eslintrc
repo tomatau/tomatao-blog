@@ -17,6 +17,7 @@
     "react"
   ],
   "globals": {
+    "ga": true,
     "expect": true,
     "global": true,
     "window": true,
