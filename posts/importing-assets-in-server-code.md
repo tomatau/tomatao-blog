@@ -2,7 +2,7 @@
 Title:  Importing Assets In Server Code
 Author: Thomas `tomatao` Hudspith-Tatham
 Tags:   universal, react, css
-Date:   
+Date:   April 3, 2016
 ---
 
 # Importing Assets In Server Code
