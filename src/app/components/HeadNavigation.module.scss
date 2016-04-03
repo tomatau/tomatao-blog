@@ -50,6 +50,6 @@ a.active {
 
 @include breakpoint('desktop') {
   .inner {
-    max-width: rem(1000);
+    max-width: rem(1100);
   }
 }

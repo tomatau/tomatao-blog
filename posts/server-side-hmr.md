@@ -68,7 +68,7 @@ import style from './styles.css'
 
 When optimising your styles, it's a good practice to use Webpack's [ExtractTextPlugin](https://github.com/webpack/extract-text-webpack-plugin) to combine the CSS modules back into one style-sheet. However, this brings us back to the original problem -- a single CSS file. So simply, turn it off for development! Ta-da!
 
-#### **NB:** You don't need to use CSS-modules for this, normal CSS includes will still work here as Webpack is already bundling each imported CSS file separately
+#### **NB:** You don't *need* to use CSS-modules for this, normal CSS includes will still work here as Webpack is already bundling each imported CSS file separately. However, this might give you some problems when the order of imports matter, such as overwriting CSS libraries.
 
 ## Hot Server
 

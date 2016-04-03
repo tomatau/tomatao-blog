@@ -41,15 +41,17 @@ body {
     flex: 2;
     margin-right: 2vw;
     max-width: 59vw;
+    width: 0;
   }
 
   .aside {
     margin-top: 0;
+    width: 0;
   }
 }
 
 @include breakpoint('desktop') {
   .wrapper {
-    max-width: rem(1000);
+    max-width: rem(1100);
   }
 }
