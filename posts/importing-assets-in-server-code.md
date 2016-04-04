@@ -25,7 +25,7 @@ NodeJS is designed for importing JS files, when it puts together your client app
 
 ### Roll Up Node-Hook
 
-One way to alleviate this pain of the server render is to place a filter around the module require system in NodeJS. Some colleagues and myself have released a module that will do this for you, `node-hook-filename`. It allows you to pass an array of string values that will be tested against each require and then *stub* the require out.
+One way to alleviate this pain of the server render is to place a filter around the module require system in NodeJS. Some colleagues and myself have released a module that will do this for you, [node-hook-filename](https://github.com/tomatau/node-hook-filename). It allows you to pass an array of string values that will be tested against each require and then *stub* the require out.
 
 ```js
 import nhf from 'node-hook-filename'
@@ -46,7 +46,7 @@ Another consideration here is cache busting of assets. A nice feature of Webpack
 
 ## Isomorphic-Tools
 
-There is a fantastic tool that can allow your app to meet all of these criteria called `webpack-isomorphic-tools`. It plugs into Webpack to generate a JSON file that contains a map between each asset you require and the value you need; be it a path, mark-up or object.
+There is a fantastic tool that can allow your app to meet all of these criteria called [webpack-isomorphic-tools](https://www.npmjs.com/package/webpack-isomorphic-tools). It plugs into Webpack to generate a JSON file that contains a map between each asset you require and the value you need; be it a path, mark-up or object.
 
 ```js
 // wepack config
@@ -134,9 +134,9 @@ The above creates a custom asset type for SVG on the server render that builds t
 
 For CSS Modules, we want our import statements to get an object containing the class names needed for our server render. While this is possible with webpack-isomophic-tools... it's can get quite messy with parser and filters in the config. But... there is another solution!
 
-## CSS-modules-hook!
+## CSS modules require hook!
 
-There is another module purely for CSS module imports, named, css-modules-hook! Put it before your server side render and it will do exactly what it says on the tin!
+There is another module purely for CSS module imports, named, [css-modules-require-hook](https://github.com/css-modules/css-modules-require-hook)! Put it before your server side render and it will do exactly what it says on the tin!
 
 There are a few gotchas, one is random hash class-names that are very useful to prevent global class collisions... both Webpack and the hook need to generate the exact same hashes. To make this easier, both Webpack and the hook can simply generate class names based on the file location instead.
 
