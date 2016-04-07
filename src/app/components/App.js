@@ -3,6 +3,7 @@ import HeadNavigation from 'app/components/HeadNavigation'
 import FlashMessages from 'app/components/containers/FlashMessages'
 import AboutMe from 'app/components/molecules/AboutMe'
 import style from './App.module.scss'
+import cx from 'classnames'
 import './App.scss'
 
 const log = {
@@ -18,8 +19,19 @@ const metaData = {
 }
 
 class App extends React.Component {
+  state = {
+    hidden: false,
+  };
+
+  toggleHide() {
+    this.setState(state => ({
+      hidden: !state.hidden,
+    }))
+  }
+
   render() {
     const { children } = this.props
+    const { hidden } = this.state
     log.app('render')
     return (
       <div className={style.app}>
@@ -30,8 +42,15 @@ class App extends React.Component {
           <main className={style.content}>
             {children}
           </main>
-          <aside className={style.aside}>
-            <AboutMe />
+          <aside className={cx(style.aside, {
+            [style.asideHide]: hidden,
+          })}>
+            <AboutMe className={cx(style.aboutMe, {
+              [style.aboutMeHide]: hidden,
+            })} />
+            <div className={style.hide} onClick={::this.toggleHide}>
+              {hidden ? 'show' : 'hide'}
+            </div>
           </aside>
         </div>
       </div>

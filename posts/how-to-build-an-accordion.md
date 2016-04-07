@@ -151,7 +151,7 @@ class DivItem extends Component {
 }
 ```
 
-Here is a little component that we can use inside the accordion, it will only render it's content when it's open. We can then write styles however we like to animation transitions. We could make various different types of AccordionItems for each of our use cases and keep them all separate, just wrapping existing components.
+Here is a little component that we can use inside the accordion, it will only render its content when it's open. We can then write styles however we like to animation transitions. We could make various different types of AccordionItems for each of our use cases and keep them all separate, just wrapping existing components.
 
 ```jsx
 <Accordion tag='ul'>
@@ -181,4 +181,4 @@ The main point here is, by focusing on a single concern, managing which of the c
 
 Stay tuned for more posts!
 
-- Tom
+- tomatao

@@ -1,8 +1,9 @@
 import avatarPath from 'assets/avatar.jpeg'
 import style from './AboutMe.module.scss'
+import cx from 'classnames'
 
-const AboutMe = (props) => (
-  <div className={style.meContainer} {...props}>
+const AboutMe = ({ className, ...props }) => (
+  <div className={cx(className, style.meContainer)} {...props}>
     <div className={style.me}>
       <p>
         <img src={avatarPath} className={style.avatar} alt='tomatao' width='30' />
