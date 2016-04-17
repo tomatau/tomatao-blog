@@ -9,7 +9,6 @@ import Spinner from 'app/components/atoms/Spinner'
 import style from './BlogListRoute.module.scss'
 import type { PostFile } from 'types/post.types'
 
-/*::`*/
 @provideHooks({
   prefetch: ({ dispatch }) =>
     dispatch(blogActions.fetchPostList()).payload.promise,
@@ -17,7 +16,6 @@ import type { PostFile } from 'types/post.types'
 @connect(state => ({
   postList: blogSelectors.getParsedPostList(state),
 }))
-/*::`*/
 class BlogListRoute extends React.Component {
   props: {
     postList: Array<PostFile>,

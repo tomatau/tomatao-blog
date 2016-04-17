@@ -14,7 +14,6 @@ import type { PostFile } from 'types/post.types'
 
 const getFilename = grab('selectedPost.filename')
 
-/*::`*/
 @provideHooks({
   prefetch: ({ dispatch, params }) =>
     dispatch(blogActions.fetchPost(params.filename)).payload.promise,
@@ -23,7 +22,6 @@ const getFilename = grab('selectedPost.filename')
   selectedPost: blogSelectors.getSelectedPost(state),
   selectedHtml: blogSelectors.getSelectedHtml(state),
 }))
-/*::`*/
 class BlogRoute extends React.Component {
   props: {
     selectedPost: PostFile,
