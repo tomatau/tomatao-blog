@@ -8,12 +8,11 @@ import { makeCreateStore } from 'app/services/makeCreateStore'
 import rootReducer from 'app/modules/reducers'
 import promiseMiddleware from 'redux-promise-middleware'
 import thunkMiddleware from 'redux-thunk'
-import chaiEnzyme from 'chai-enzyme'
 
 chai.use(require('chai-shallow-deep-equal'))
 chai.use(require('chai-as-promised'))
 chai.use(require('sinon-chai'))
-chai.use(chaiEnzyme())
+chai.use(require('chai-enzyme'))
 
 const helpers = {
   cloneApp(app) {

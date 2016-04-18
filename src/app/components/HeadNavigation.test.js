@@ -2,6 +2,7 @@ import HeadNavigation from './HeadNavigation'
 import sd from 'skin-deep'
 import { IndexLink, Link } from 'react-router'
 import styles from './HeadNavigation.module.scss'
+import logoPath from 'assets/tomatao-logo-02.svg'
 
 describe('Head Navigation Component', function() {
   beforeEach(()=> {
@@ -38,11 +39,17 @@ describe('Head Navigation Component', function() {
         className: styles.homeLink,
         activeClassName: styles.active,
       })
-      const header = indexLink.props.children.find(n =>
-        n.props.className == styles.header
-      )
-      expect(header.type).to.eql('h2')
+    })
+
+    it('renders IndexLink containing a h2 of the webpage title', ()=> {
+      const header = this.tree.dive([ IndexLink.displayName, 'h2' ])
+      expect(header.props.className).to.eql(styles.header)
       expect(header.props.children).to.contain('tomatao blog')
+    })
+
+    it('renders IndexLink containing an image of the logo svg', ()=> {
+      const img = this.tree.dive([ IndexLink.displayName, 'img' ])
+      expect(img.props).to.have.property('src', logoPath)
     })
 
     links.forEach(link =>
