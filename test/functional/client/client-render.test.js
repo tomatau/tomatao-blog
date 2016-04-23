@@ -77,8 +77,8 @@ describe('Client Render', function() {
       it('should render a list of blog posts', ()=> {
         posts.forEach(post => {
           expect(
-            this.wrapper.find('.BlogListRoute')
-          ).to.contain.text(post.title)
+            this.wrapper.find('.BlogListRoute').text()
+          ).to.contain(post.title)
         })
       })
     })
