@@ -36,10 +36,10 @@ body {
 
 .aboutMe {
   opacity: 1;
-  transition: opacity 100ms ease-in, transform 200ms ease-out;
-  transform: scaleY(1);
   position: absolute;
   top: 0;
+  transform: scaleY(1);
+  transition: opacity 100ms ease-in, transform 200ms ease-out;
 }
 
 .hide {
@@ -50,12 +50,12 @@ body {
   .hide {
     background: $tomatao-green;
     color: $white;
-    padding: rem(5 10);
-    transform: rotate(90deg);
+    display: block;
     left: 90%;
+    padding: rem(5 10);
     position: absolute;
     top: 90px;
-    display: block;
+    transform: rotate(90deg);
 
     &:hover {
       cursor: pointer;
@@ -68,7 +68,7 @@ body {
 
   .aboutMeHide {
     opacity: 0;
-    transform: scaleY(0.3);
+    transform: scaleY(.3);
   }
 
   .wrapper {
@@ -79,8 +79,8 @@ body {
   .content {
     flex: 2;
     margin-right: 2vw;
-    width: 0;
     max-width: rem(720);
+    width: 0;
   }
 
   .aside {
