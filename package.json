@@ -37,7 +37,7 @@
     "webpack"
   ],
   "author": "Thomas `tomatao` Hudspith-Tatham <tom@tomatao.co.uk>",
-  "license": "GNU GPLv3",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/tomatau/tomatao-blog/issues"
   },
@@ -99,6 +99,7 @@
     "node-mocks-http": "^1.5.2",
     "node-sass": "~3.4.2",
     "offline-plugin": "^2.1.0",
+    "opbeat": "^3.6.7",
     "postcss-loader": "^0.8.2",
     "prismjs": "^1.4.1",
     "ramda": "^0.19.1",
