@@ -18,11 +18,11 @@ const Logo = (props) => <img {...props} src={src} />
 // throw a party! ♪┏(^.^)┛┗(^.^)┓┗(^.^)┛┏(^.^)┓ ♪
 ```
 
-Due to configuration (not shown). The above code is importing a path string to an asset which is used when rendering a logo. This works great inside a webpack bundle, but we don't necessarily want to bundle our tests! So how can we get it working in tests and better yet, write meaning full assettions?
+Due to configuration (not shown). The above code is importing a path string to an asset which is used when rendering a logo. This works great inside a Webpack bundle, but we don't necessarily want to bundle our tests! So how can we get it working in tests and better yet, write meaning full assertions?
 
 # Webpack-Isomorphic-Tools, not here
 
-There are a few solutions to this, one big one is webpack-isomorphic-tools which can be used to map asset files to configurable values. But this relies on an initial webpack build generating a JSON file, so doesn't really work fot testing.
+There are a few solutions to this, one big one is Webpack-isomorphic-tools which can be used to map asset files to configurable values. But this relies on an initial Webpack build generating a JSON file, so doesn't really work for testing.
 
 # Node-Hook-Filename
 
@@ -35,12 +35,12 @@ const foo = require('path/to/foo')
 // foo will now be a string of `something/foo`,
 // regardless of what exists in the foo file.
 const bar = require('path/to/bar')
-// bar is uneffected and behaves as normal
+// bar is unaffected and behaves as normal
 ```
 
-Above is a simple example of how we can alter require statements and prevent node from reading source files. We can use this!  If we put the `node-hook-filename` call only in our test environment setup it can be used to assist with assertions against assets!
+Above is a simple example of how we can alter require statements and prevent node from reading source files. We can use this!  If we put the `node-hook-filename` call only in our test environment set-up it can be used to assist with assertions against assets!
 
-So for CSS-modules, the hook chaning the export to a string isn't enough, we need an object with some classNames!
+So for CSS-modules, the hook changing the export to a string isn't enough, we need an object with some classNames!
 
 
 ## An example
@@ -53,7 +53,7 @@ import src from './brand.jpg'
 const Logo = (props) => <img {...props} src={src} />
 ```
 
-For testing this, we don't want to use webpack, we just want to test that the correct image is used for the logo!
+For testing this, we don't want to use Webpack, we just want to test that the correct image is used for the logo!
 
 ```jsx
 // test.setup.js
