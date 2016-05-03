@@ -12,7 +12,7 @@ Let's walk through building an Accordion component in a flexible and simple mann
 
 First, split up the concerns. An accordion often combines two features, managing which of a list of items is open.. and what the items in that list look like when opening and closing. The second of these concerns can be moved into the items themselves so that the Accordion can do one thing and do it well!
 
-So now, the task of an Accordion is simply to manage which items in a list are "open".  We can start with assuming only 1 item should be open and future enhancements can enable more than one to be open. 
+So now, the task of an Accordion is simply to manage which items in a list are "open".  We can start with assuming only 1 item should be open and future enhancements can enable more than one to be open.
 
 #### **NB:** We'll build it in mind so that each item can shortcut to an open state without the Accordions involvement.
 
@@ -119,7 +119,7 @@ class Accordion extends Component {
       React.Children.map(children, (child, i) =>
         React.cloneElement(child, {
           isOpen: child.props.isOpen == null
-            ? child.props.isOpen 
+            ? child.props.isOpen
             : openIndex == i,
           className: cx('accordion__item', child.props.className),
           requestOpen: this.handleRequestOpen.bind(this, i),
@@ -137,15 +137,15 @@ class Accordion extends Component {
 How can we use such an elegant beauty? Well we will need to make custom Accordion items, they can wrap around existing components in an Adapter style pattern to communicate with the parent accordion!
 
 ```jsx
-class DivItem extends Component {
+class ListItem extends Component {
   render() {
     const { isOpen, requestOpen, className } = this.props
     return (
-      <div className={cx(className, { isOpen })}
+      <li className={cx(className, { isOpen })}
         onClick={requestOpen}>
         {this.renderTitle()}
         {isOpen ? this.renderContent() : null}
-      </div>
+      </li>
     )
   }
 }
@@ -155,10 +155,10 @@ Here is a little component that we can use inside the accordion, it will only re
 
 ```jsx
 <Accordion tag='ul'>
-  <DivItem />
-  <DivItem />
+  <ListItem />
+  <ListItem />
   {/* make one item always open */}
-  <DivItem isOpen={true} />
+  <ListItem isOpen={true} />
 </Accordion>
 ```
 
